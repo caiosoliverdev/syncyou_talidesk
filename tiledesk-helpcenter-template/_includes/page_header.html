@@ -1,0 +1,19 @@
+{% capture custom_color %}{{site.data.header.custom_color}}{% endcapture %}
+{% capture img_header %}{{site.data.header.img_header}}{% endcapture %}
+{% if img_header != ""%}
+      <section class="page-title-area bg-cover-custom" id="header_cover_img" style= "background-color:{{custom_color}}!important;background-image: url({{img_header}}); min-height: 450px; background-size: cover; background-repeat: no-repeat; background-position: center !important;"> 
+   {% else %}
+      <section class="page-title-area bg-cover-custom" id="header_cover"  style="min-height: 450px; background-color:{{custom_color}}!important;">
+   {% endif %}
+<div class="page-title-wrapper section-spacing">
+    <div class="page-title text-center white-text">
+      {% capture title %}{{site.data.blog.title}}{% endcapture %}
+      {% if title != "" %}
+         <h1 class="heading-1">{{title}}</h1>
+      {% else %}
+         <h1 class="heading-1">{{page.title}}</h1>
+      {% endif %}
+       
+    </div>
+ </div>
+</section>

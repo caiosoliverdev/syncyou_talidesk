@@ -1,0 +1,26 @@
+---
+layout: null
+---
+[
+  {% assign posts = site.posts | where: 'draft' ,'false' %}
+  {% for post in posts %}
+    {% assign sez = -1  %}
+    {% assign categoria =  site.data.category.category | where: 'key' , post.categories[0] | where: 'type', '(categoria)' | where: 'draft', false | first %}
+    {% assign sezione =  site.data.category.category | where: 'key' , post.categories[1] | where: 'type', '(sezione)' | where: 'draft', false | first %}
+    {% if sezione.size == 0 and post.categories[1] %}
+      {% assign sez = 1  %}
+    {% endif %}
+    {% if categoria.size > 0 %}
+      {% if sezione == 0 and post.categories[1] %}
+        {
+          "title"    : "{{ post.title | escape }}",
+          "category" : "{{ post.categories }}",
+          "tags"     : "{{ post.tags | join: ', ' }}",
+          "url"      : "{{ post.url | relative_url }}",
+          "date"     : "{{ post.date }}",
+          "description" : "{{post.excerpt | strip_html | strip_newlines | escape }}"
+        } {% unless forloop.last %},{% endunless %}
+      {% endif %} 
+    {% endif %}    
+  {% endfor %}
+]

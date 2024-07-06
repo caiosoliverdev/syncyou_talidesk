@@ -1,0 +1,25 @@
+items:
+  - text: Home
+    url: /
+    draft: false
+  - text: Go to SyncYou
+    url: https://tiledesk.com/
+    draft: true
+  - text: Blog
+    url: https://tiledesk.com/blog/
+    draft: true
+  - text: Sign up
+    url: https://console.tiledesk.com
+    draft: true
+  - text: Categories
+    url: /categories
+    draft: true
+  - text: Tags
+    url: /tags
+    draft: true
+  - text: Year archive
+    url: /year-archive
+    draft: true
+  #- text: Pages
+  #  url: /pages
+  #  draft: true

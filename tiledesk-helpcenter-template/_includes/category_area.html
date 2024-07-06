@@ -1,0 +1,209 @@
+<!-- Start Topics  Area -->
+<section class="topics-area bg-color1">
+   <div class="topics-wrapper section-spacing pt-0 bminus-30">
+      <div class="container">
+         <div class="section-title">
+            {% assign title = site.data.topicsarea.title %}
+            {% assign subtitle = site.data.topicsarea.subtitle %}
+            {% assign my_categories = site.data.category.category | where: 'draft', 'false' | sort: "order" %}
+            {% assign one_post = 0 %}
+            {% for category in my_categories %}
+            {% capture category_name %}{{ category.key}}{% endcapture %}
+            {% assign all_posts = site.categories[category_name] | where: "featured", true | where: 'draft' ,'false' %}
+            {% if all_posts.size > 0%}
+            {% assign one_post = 1 %}
+            {% endif %}
+            {% endfor %}
+            {% if my_categories.size == 0 %}
+            <br>
+
+            <div class="nocontent"
+               style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+               <img src="./assets/images/no-content-blue.png" width="200px" height="auto">
+               <p class="center" id="writeoop">
+                  {{site.data.ui-text[site.locale].insert_an_article | default: "Oops! There seems to be no content." }}
+               </p>
+            </div>
+
+
+            <!-- <div class="nocontent">
+               <h7 class="heading-7">
+                  <p class="center">{{site.data.ui-text[site.locale].insert_an_article | default: "There are no articles
+                     yet .." }}</p>
+               </h7>
+            </div> -->
+            {% elsif my_categories.size > 0 and one_post == 0 %}
+            <br>
+
+            <div class="nocontent"
+               style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+               <img src="./assets/images/no-content-blue.png" width="200px" height="auto">
+                <p class="center" id="writeoop">
+                  {{site.data.ui-text[site.locale].insert_an_article | default: "Oops! There seems to be no content." }}
+               </p>
+            </div>
+
+            <!-- <div class="nocontent">
+               <h7 class="heading-7">
+                  <p class="center">{{site.data.ui-text[site.locale].insert_an_article | default: "There are no articles
+                     yet .." }}</p>
+               </h7>
+            </div> -->
+            {% else %}
+            <h5 class="heading-5 feature-art-title">{{site.data.ui-text[site.locale].featured_articles_title | default: "Featured article"
+               }}</h5>
+            <h7 class="heading-7">
+               <p>{{site.data.ui-text[site.locale].featured_articles_subtitle | default: "" }}</p>
+            </h7>
+            {% endif %}
+            
+            <div class="col">
+               <!-- Start Topics  Area -->
+               <div class="topics-service-area" style="text-align: left; display: flex; flex-wrap: wrap;">
+                  {% for category in my_categories %}
+                  {% capture category_name %}{{ category.key}}{% endcapture %}
+                  {% capture category_label %}{{ category.label}}{% endcapture %}
+                  {% capture category_draft %}{{ category.draft}}{% endcapture %}
+                  {% capture category_url %}{{ category.url}}{% endcapture %}
+                  {% capture category_type %}{{ category.type}}{% endcapture %}
+                  {% assign category_url_cat = "/categories/" | append: category_url %}
+                  {% if category_draft == "false" and category_type == '(categoria)' %}
+                  <!--CONTATORE POST IN CATEGORIA-->
+                  <!-- {% assign all_posts = site.categories[category_name] | where: "featured", true | where: 'draft' ,'false' %} -->
+                  {% assign evidence_posts_cat = site.posts | where: 'categories' , category_name | where: "featured",
+                  true | where: 'draft' ,'false' | where: 'category_key', nil | sort: "order" %}
+                  {% assign evidence_posts_sez = site.posts | where: 'categories' , category_name | where: "featured",
+                  true | where: 'draft' ,'false' | where: 'category_key', category_name | sort: "order" %}
+                  {% assign all_posts = evidence_posts_cat.size | plus: evidence_posts_sez.size %}
+                  <!-- all_posts: {{all_posts}}/{{evidence_posts_cat.size}}/{{evidence_posts_sez.size}} -->
+                  {% if all_posts > 0 %}
+                  {% assign posts_number = 0 %}
+                  <!--STAMPO POST DELLA CATEGORIA-->
+                  {% assign evidence_posts_cat = site.posts | where: 'categories' , category_name | where: "featured",
+                  true | where: 'draft' ,'false' | where: 'category_key', nil | sort: "order" %}
+                  <!--nel widget nella home compaiono solo i post con featured = true e draft = false-->
+                  {% for doc_post in evidence_posts_cat %}
+                  {% capture post_draft %}{{ doc_post.draft}}{% endcapture %}
+                  {% if post_draft == "false" %}
+                  {% assign posts_number = posts_number | plus: 1 %}
+                  {% endif %}
+                  {% endfor %}
+                  <!--STAMPO POST DELLE SEZIONI-->
+                  {% assign evidence_posts_sez = site.posts | where: 'categories' , category_name | where: "featured",
+                  true | where: 'draft' ,'false' | where: 'category_key', category_name | sort: "order" %}
+
+                  <!--nel widget nella home compaiono solo i post con featured = true e draft = false-->
+                  {% for doc_post in evidence_posts_sez %}
+                  {% capture post_draft %}{{ doc_post.draft}}{% endcapture %}
+                  {% capture name_section %}{{ doc_post.categories[1]}}{% endcapture %}
+                  {% assign section = site.data.category.category | where: 'key', name_section | where: 'type'
+                  ,'(sezione)' | first %}
+                  {% capture section_draft %}{{ section.draft}}{% endcapture %}
+                  {% if section_draft == "false" %}
+                  {% if post_draft == "false" %}
+                  <!--CONTA I POST NELLA CATEGORIA-->
+                  {% assign posts_number = posts_number | plus: 1 %}
+                  {% endif %}
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
+                  <!--FINE CONTATORE POST IN CATEGORIA-->
+                  {% if (all_posts) > 0 %}
+                  <!-- <article class="post topics-service bg-color3 wow fadeIn" data-wow-duration="3s"> -->
+                  <article class="post topics-service bg-color3" style="flex: 0 0 340px;">
+                     <header class="topics-title">
+                        {% assign all_posts = site.categories[category_name] | where: 'draft' ,'false' %}
+                        <h5 class="heading-5 text-capitalize font-weight-bold font-size-title"><a
+                              href="{{category_url_cat |  append: '/' | relative_url}}"><div id="my_category_title_featured">{{ category_label }}</div>
+                              <!--({{posts_number}})-->
+                           </a></h5>
+                     </header>
+                     <ul class="list-inline">
+                        <!-- AGGIUNGERE IL CAMPO ORDER AL POST - CONTROLLA CHE CI SIA ALMENTO UN POST NELLA CATEGORIA-->
+                        {% if all_posts.size > 0 %}
+                        <!--STAMPO POST DELLA CATEGORIA-->
+                        {% assign evidence_posts_cat = site.posts | where: 'categories' , category_name | where:
+                        "featured", true | where: 'draft' ,'false' | where: 'category_key', nil | sort: "order" %}
+                        {% assign evidence_posts_sez = site.posts | where: 'categories' , category_name | where:
+                        "featured", true | where: 'draft' ,'false' | where: 'category_key', category_name | sort:
+                        "order" %}
+
+                        {% assign number_post_featured_tot = evidence_posts_cat.size | plus: evidence_posts_sez.size %}
+                        <!-- evidence_posts_cat: {{evidence_posts_cat.size}} / evidence_posts_sez: {{evidence_posts_sez.size}} / number_post_featured: {{number_post_featured}} -->
+                        {% assign number_post = number_post_featured_tot %}
+                        {% if number_post_featured_tot > 8 %}
+                        {% if evidence_posts_cat.size > 8 %}
+                        {% assign number_post_featured = 8 %}
+                        {% assign number_post_featured2 = 0 %}
+                        {% else %}
+                        {% assign number_post_featured = evidence_posts_cat.size %}
+                        {% assign number_post_featured2 = 8 | minus: evidence_posts_cat.size %}
+                        {% endif %}
+                        {% else %}
+                        {% assign number_post_featured = evidence_posts_cat.size %}
+                        {% assign number_post_featured2 = evidence_posts_sez.size %}
+                        {% endif %}
+
+                        <!-- number_cat: {{number_post_featured}} / number_post_sez: {{number_post_featured2}} -->
+                        <!--STAMPO POST NELLE CATEGORIE-->
+                        {% for doc_post in evidence_posts_cat limit: number_post_featured %}
+                        {% capture post_draft %}{{ doc_post.draft}}{% endcapture %}
+                        {% if post_draft == "false" %}
+                        <li><a href="{{ doc_post.url | relative_url }}" class="article_link">
+                              <h7 class="heading-7">{{ doc_post.title }}
+                                 <!--/({{doc_post.order}})-->
+                              </h7>
+                           </a></li>
+                        {% endif %}
+                        {% endfor %}
+                        <!--STAMPO POST DELLE SEZIONI-->
+                        {% assign sections = site.data.category.category | where: 'category_key', category_name | where:
+                        'type' ,'(sezione)' | where: 'draft' , false | sort: "order" %}
+                        <!-- SEZIONI DELLA CAT: {{section}} -->
+                        {% assign number_post_restanti = number_post_featured2 %}
+                        {% for section in sections%}
+                        {% capture section_key %}{{section.key}}{% endcapture %}
+                        {% assign evidence_posts_se = site.categories[section_key] | where: 'category_key' ,
+                        category_name | where: 'featured', true | where: 'draft' ,'false' %}
+                        {% if evidence_posts_se.size > 0 %}
+                        {% assign evidence_posts_sez_ord = site.categories[section_key] | where: 'category_key' ,
+                        category_name | where: 'featured', true | where: 'draft' ,'false' | sort: "order" %}
+                        <!-- {% assign evidence_posts_sez = site.posts | where: 'categories' , category_name | where: 'categories' , section_key | where: 'featured', true | where: 'draft' ,'false' |  where: 'section_key', section | sort: "order" %} -->
+                        {% for doc_post in evidence_posts_sez_ord limit: number_post_restanti %}
+                        <li><a href="{{ doc_post.url | relative_url }}" class="article_link">
+                              <h7 class="heading-7">{{ doc_post.title }}
+                                 <!--/({{doc_post.order}}) -->
+                              </h7>
+                           </a></li>
+                        {% endfor %}
+                        {% assign number_post_restanti = number_post_restanti | minus: evidence_posts_sez_ord.size %}
+                        <!-- number_post_restanti: {{number_post_restanti}} -->
+                        {% endif %}
+                        {%endfor%}
+                        <!--number_post: {{number_post}}-->
+                        {% if (number_post) > 8 %}
+                        <!--SE CI SONO PIU DI 8 POST TRA CATEGORIA E SEZIONE ALLORA STAMPA See all-->
+                        <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                           <h7 class="heading-7" itemprop="headline" style="margin-bottom: -2px;">
+                              <p class="archive__item-excerpt" itemprop="description"></p>
+                              {% assign category_url_cat = "/categories/" | append: category_url %}
+                              <a href="{{ category_url_cat |  append: '/'| relative_url }}" rel="permalink"
+                                 class="heading-6">{{site.data.ui-text[site.locale].see_more | default: "More .." }}
+                                 <!--<i class="fa fa-arrow-right" style="margin-left: 10px;"></i>-->
+                              </a>
+                              </p>
+                           </h7>
+                        </article>
+                        {% endif %}
+                        {% endif %}
+                     </ul>
+                  </article>
+                  {% endif %}
+                  {% endif %}
+                  {%endfor%}
+               </div>
+            </div>
+         </div>
+      </div>
+</section>
+<!-- End Topics Area -->

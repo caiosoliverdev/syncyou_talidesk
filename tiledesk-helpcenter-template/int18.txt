@@ -1,0 +1,59 @@
+## PAGE MULTILINGUE
+
+## PAGE
+
+ogni pagina deve contenere le seguenti informazioni
+---
+layout: category_list
+title: Explore Tags --> SEO TITLE
+add_to_menu: false
+description: "Explore Tags" --> SEO <meta name="description" content="
+keywords: "SyncYou, chatbot, AI" --> SEO <meta name="keywords" content=
+lang: en --> LINGUA DELLA PAGINA --> NON È STATO ANCORA IMPLEMENTATO
+---
+
+/
+
+- index.html
+- tags.html
+- categories.html
+- year-archive.html
+- blog.html
+
+- categories.html -
+{{site.data.ui-text[site.locale].category_no | default: "Create an article .." }}{{section.label}}
+
+/pages
+
+- contact.html
+ATTENTO! La pagina contact deve essere localizzata da Giovanni
+
+
+## INCLUDE
+- header.html -
+{{site.data.ui-text[site.locale].logo_title | default: "Title" }}
+
+
+- footer_custom.html -
+{{ site.data.ui-text[site.locale].footer_followus | default: "Follow Us" }}
+{{ site.data.ui-text[site.locale].footer_archive | default: "Archives" }}
+
+- category_area.html -
+{{ site.data.ui-text[site.locale.featured_articles_title | default: "Title" }}
+{{ site.data.ui-text[site.locale].featured_articles_subtitle | default: "Subtitle" }}
+
+- breadcrumbs.html -
+{ site.data.ui-text[site.locale].breadcrumb_home_label | default: "Home" }}
+
+- doc_post_breadcrumb.html -
+{{ site.data.ui-text[site.locale].breadcrumb_home_label | default: "Home" }}
+
+- sidebar_new_post_list.html
+{site.data.ui-text[site.locale].recent_posts | default: "Latest posts" }}
+
+- sidebar_cat_post.html
+{site.data.ui-text[site.locale].category_posts | default: "Category posts -" }}
+
+# LABEL MULTILINGUE
+
+class="article_link">

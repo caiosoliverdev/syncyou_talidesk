@@ -1,0 +1,185 @@
+---
+layout: default
+title: Archive
+author_profile: false
+---
+<!-- PAGINA ELENCO DELLE SEZIONI DI UNA CATEGORIA -->
+{% include header.html %}
+<!-- Start Page Title Area -->
+{% capture custom_color %}{{site.data.header.custom_color}}{% endcapture %}
+{% capture img_header %}{{site.data.header.img_header}}{% endcapture %}
+{% if img_header != ""%}
+<section class="page-title-area bg-cover-custom" id="header_cover_img"
+   style="background-color:{{custom_color}}!important; background-image: url({{img_header}}); min-height: 450px; background-size: cover; background-repeat: no-repeat; background-position: center !important;">
+   {% else %}
+   <section class="page-title-area bg-cover-custom" id="header_cover"
+      style="min-height: 450px; background-color:{{custom_color}}!important;">
+      {% endif %}
+      <div class="section-spacing page-title-wrapper">
+         <div class="container">
+            {% include search_header.html %}
+            <!--
+            {% assign page_tit =  site.data.category.category | where: 'key' ,page.title | first %}
+            <h2 class="heading-2">{{page_tit.label | replace: '_', '-' }}</h2>
+            -->
+         </div>
+      </div>
+   </section>
+   <!-- End Page Title Area -->
+   {% include breadcrumbs.html %}
+   <!-- Start Blog  Area -->
+   <section class="blog-area bg-color1">
+      <div class="blog-wrapper section-spacing bminus-30">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-7 col-lg-8">
+                  <!--RIMUOVO DALL'URL /CATEGORIES/-->
+                  {% capture category_n %}{{ page.url | remove: "/categories/"}}{% endcapture %}
+                  {% capture category_name %}{{ category_n | remove: "/"}}{% endcapture %}
+                  <!--CAPISCO SE MI TROVO IN UNA CATEGORIA O SEZIONE-->
+                  <!--DEB1:{{category_name}}-->
+                  {% assign cat-sez = site.data.category.category | where: 'key' ,category_name | first %}
+                  <!--DEB2: {{cat-sez.type}} -->
+                  <!-- SE MI TROVO IN UNA CATEGORIA-->
+                  {% if cat-sez.type == "(categoria)" %}
+                  <!--CAPISCO SE DEVO VISUALIZZARE ARTICOLI E/O CATEGORIE-->
+                  {% assign display_mode = site.data.topicsarea.display_mode %}
+                  <h3 class="heading-3 text-capitalize font-weight-bold">{{page_tit.label | replace: '_', '-' }}</h3>
+                  <br>
+                  <!--
+                  {% if display_mode == "all" %}
+                     <h5 class="heading-6">{{site.data.ui-text[site.locale].section_category_all | default: "The articles and sections of the category" }} {{page_tit.label | replace: '_', '-' }}</h5>
+                  {% elsif display_mode == "article_in_category" %}
+                     <h5 class="heading-6">{{site.data.ui-text[site.locale].section_category_onlyart | default: "The articles of the category" }} {{page_tit.label | replace: '_', '-' }}</h5>
+                  {% elsif display_mode == "article_in_section" %}
+                     <h5 class="heading-6">{{site.data.ui-text[site.locale].section_category_onlysez | default: "The sections of the category" }} {{page_tit.label | replace: '_', '-' }}</h5>
+                  {% endif %}
+                  -->
+                  <!--PRENDO TUTTE LE CATEGORIE-->
+                  {% assign all_categories = site.data.category.category | where: 'category_key' , category_name |
+                  where: 'draft' ,'false' | sort: "order" %}
+                  {% if display_mode == "article_in_category" %}
+                  <!--CICLO SU TUTTI GLI ARTICOLI DELLA CATEGORIA-->
+                  {% assign all_posts_of_category = site.categories[category_name] | where: 'category_key', nil | where:
+                  'draft' ,'false' %}
+                  {% if all_posts_of_category.size > 0 %}
+                  <!-- <article class="post topics-service bg-color3 wow fadeIn" data-wow-duration="3s"> -->
+                  <article class="post topics-service bg-color3">
+                     {% assign all_posts_of_category_ord = site.categories[category_name] | where: 'category_key', nil |
+                     where: 'draft' ,'false' | sort: "order" %}
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-md-7 col-lg-8">
+                              {% for post in all_posts_of_category_ord %}
+                              {% include archive-single.html %}
+                              {% endfor %}
+                           </div>
+                        </div>
+                     </div>
+                     {% endif %}
+                     {% endif %}
+                     {% if display_mode == "all" %}
+                     <!--CICLO SU TUTTI GLI ARTICOLI DELLA CATEGORIA-->
+                     {% assign all_posts_of_category = site.categories[category_name] | where: 'category_key', nil |
+                     where: 'draft' ,'false' %}
+                     {% if all_posts_of_category.size > 0 %}
+                     <!-- <article class="post topics-service bg-color3 wow fadeIn" data-wow-duration="3s"> -->
+                     <article class="post topics-service bg-color3">
+                        {% assign all_posts_of_category_ord = site.categories[category_name] | where: 'category_key',
+                        nil | where: 'draft' ,'false' | sort: "order" %}
+                        {% for post in all_posts_of_category_ord %}
+                        {% include archive-single.html %}
+                        {% endfor %}
+                        {% endif %}
+                        {% endif %}
+                        {% if display_mode == "all" or display_mode == "article_in_section" %}
+                        <!--SE C'E ALMENO UNA SEZIONE-->
+                        {% if all_categories.size > 0 %}
+                     </article>
+                     {% endif %}
+                     <!--CICLO SU TUTTE LE SEZIONI DELLA CATEGORIA-->
+                     {% for section in all_categories %}
+                     <!--PRENDO TUTTE LE SEZIONI-->
+                     {% capture section_key %}{{section.key}}{% endcapture %}
+                     {% assign all_posts = site.categories[section_key] | where: 'category_key' , category_name | where:
+                     'draft' ,'false' %}
+                     <!--SE UNA SEZIONE CONTIENE ALMENO UN ARTICOLO-->
+                     <!-- section.key: {{section.key}} / category_name: {{category_name}} / all_posts.size: {{all_posts.size}} -->
+                     {% if section.key != category_name and all_posts.size > 0 %}
+                     <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                        <h4 class="heading-4 text-capitalize font-size-title3" itemprop="headline">
+                           <!-- COSTRUISCO URL SEZIONE -->
+                           {% capture section_url %}{{ '/categories/' | append: section.url }}{% endcapture %}
+                           <a href="{{ section_url |  append: '/'| relative_url }}"
+                              rel="permalink">{{section.label}}</a>
+                        </h4>
+                        <!--PRENDO TUTTI GLI ARTICOLI DELLA SEZIONE-->
+                        {% assign my_posts_section = site.categories[section.key] | where: 'category_key' ,
+                        category_name | where: 'draft' ,'false' %}
+                        {% if my_posts_section.size > 0 %}
+                        {% assign my_posts_section_ord = site.categories[section.key] | where: 'category_key' ,
+                        category_name | where: 'draft' ,'false' | sort: "order" %}
+                        <!-- <article class="post topics-service bg-color3 wow fadeIn" data-wow-duration="3s"> -->
+                        <article class="post topics-service bg-color3">
+                           <!--CICLO SU TUTTI GLI ARTICOLI DELLA SEZIONE FEATURED -->
+                           {% if my_posts_section_ord.size > 0 %}
+                           {% for post in my_posts_section_ord limit: 5 %}
+                           {% include archive-single.html %}
+                           {% endfor %}
+                           {% if my_posts_section.size > 5 %}
+                           <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                              <h7 class="heading-7" itemprop="headline" style="margin-bottom: -2px;">
+                                 <p class="archive__item-excerpt" itemprop="description"></p>
+                                 <a href="{{ section_url |  append: '/' | relative_url }}" rel="permalink"
+                                    class="heading-7">{{site.data.ui-text[site.locale].see_more | default: "More .."
+                                    }}</a>
+                                 </p>
+                              </h7>
+                           </article>
+                           {% endif %}
+                           {% endif %}
+                           {% endif %}
+                        </article>
+                     </article>
+                     {% else %}
+                     <!--SE UNA SEZIONE NON CONTIENE ALMENO UN ARTICOLO-->
+                     <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                        <h4 class="heading-4" itemprop="headline">
+                           {{section.label}}
+                        </h4>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                        {% elsif cat-sez.type == "(sezione)" %}
+                        <!-- SE MI TROVO IN UNA SEZIONE-->
+                        <h3 class="heading-3 text-capitalize"> {{page_tit.label | replace: '_', '-' }}</h3>
+                        <!--PRENDO TUTTI GLI ARTICOLI-->
+                        {% assign my_posts_section = site.categories[cat-sez.key] | where:
+                        'category_key',cat-sez.category_key | where: 'draft' ,'false' %}
+                        {% if my_posts_section.size > 0 %}
+                        {% assign my_posts_section_ord = site.categories[cat-sez.key] | where:
+                        'category_key',cat-sez.category_key | where: 'draft' ,'false' | sort: "order" %}
+                        <article class="post topics-service bg-color3 wow fadeIn" data-wow-duration="3s">
+                           <!--CICLO SU TUTTI GLI ARTICOLI DELLA SEZIONE-->
+                           {% for post in my_posts_section_ord %}
+                           {% include archive-single.html %}
+                           {% endfor %}
+                           {% endif %}
+                           {% endif %}
+               </div>
+               <div class="col-md-5 col-lg-4">
+                  {% if cat-sez.type == "(categoria)" %}
+                  <!--WIDGET CATEGORIE-->
+                  {% include sidebar_cat_list.html %}
+                  {% elsif cat-sez.type == "(sezione)" %}
+                  <!--WIDGET SEZIONI-->
+                  {% include sidebar_sect_list.html %}
+                  {% endif %}
+                  {% include sidebar_new_post_list.html %}
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- End Blog Area -->
+   {% include footer_custom.html %}

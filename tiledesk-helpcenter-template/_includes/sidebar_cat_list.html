@@ -1,0 +1,28 @@
+<!--  SEZIONE CHE VISUALIZZA L'ELENCO DELLE CATEGORIE DELL'HELP CENTER-->
+<div class="sidebar-area sidebar-right">
+  <h4 class="sub-title heading-4">{{site.data.ui-text[site.locale].categories_label | default: "categories -"}}</h4>
+  <!-- <div class="changelog-service wow fadeIn" data-wow-duration="3s"> -->
+  <div class="changelog-service">
+  <ul class="changelog-list list-inline">
+    <!--PRENDO SOLO LE CATEGORIE-->
+   {% assign my_categories =  site.data.category.category | where: 'type' ,'(categoria)' | sort: "order"  %}
+   {% for category in my_categories %}
+   <!-- for category in site.data.category.category %} -->
+   <!-- DEB: {{category}} -->
+   {% capture category_draft %}{{ category.draft}}{% endcapture %}
+     {% if category_draft == "false" %}
+      <!--CONTROLLO CHE CI SIA ALMENO UN ARTICOLO NELLA CATEGORIA-->
+      {% capture category_key %}{{category.key}}{% endcapture %}
+      {% assign all_posts = site.categories[category_key] %}
+      {% if all_posts.size > 0 %}
+      <div class="recent-details">
+              {% assign my_category_url = "/categories/" | append: category.url %}
+              <a href="{{ my_category_url |  append: '/' | relative_url }}" class="article_link">{{ category.label }}</a>
+              <p class="archive__item-excerpt" itemprop="description"></p>
+      </div>  
+      {% endif %}
+     {% endif %}
+    {% endfor %}
+  </ul>
+  </div>
+  </div>

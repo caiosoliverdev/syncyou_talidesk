@@ -1,0 +1,156 @@
+<!-- Start Footer Area -->
+{% capture bg-color3-custom %}{{site.data.footer.custom_color}}{% endcapture %}
+<footer class="footer-area bg-color3" style="background-color: {{bg-color3-custom}}!important;">
+    <div class="footer-wrapper section-spacing bminus-30">
+        <div class="container">
+            <div class="row">
+                {% capture footer1_link_title_check %}{{site.data.footer.footer1_link_title_check}}{% endcapture %}
+                {% if footer1_link_title_check == "true" %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="footer-widget wow fadeIn" data-wow-duration="1s">
+                        {% capture footer_title %}{{site.data.footer.title}}{% endcapture %}
+                        <h5 class="footer-title heading-5">{{footer_title}}</h5>
+                        {% capture footer_subtitle %}{{site.data.footer.subtitle}}{% endcapture %}
+                        <p>{{footer_subtitle}}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% capture footer2_link_title_check %}{{site.data.footer.footer2_link_title_check}}{% endcapture %}
+                {% if footer2_link_title_check == "true" %}
+                <div class="col-md-6 col-lg-2">
+                    <div class="footer-widget wow fadeIn" data-wow-duration="2s">
+                        <h5 class="footer-title heading-5">{{site.data.ui-text[site.locale].footer_archive | default: "Archives" }}</h5>
+                        <ul class="footer-category list-inline">
+                            <li><a href="{{ '/categories/' | relative_url }}">Categories</a></li>
+                            <li><a href="{{ '/tags/' | relative_url }}">Tags</a></li>
+                            <li><a href="{{ '/year-archive/' | relative_url }}">Articles</a></li>
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+                {% capture footer3_link_title_check %}{{site.data.footer.footer3_link_title_check}}{% endcapture %}
+                {% if footer3_link_title_check == "true" %}
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-widget wow fadeIn" data-wow-duration="3s">
+                        <h5 class="footer-title heading-5">Resources</h5>
+                        <ul class="footer-category list-inline">
+                            {% capture footer_link_name1_check %}{{site.data.footer.footer_link_name1_check}}{% endcapture %}
+                            {% if footer_link_name1_check == "true" %}
+                            <li><a href="{{site.data.footer.footer_link_url1}}" target="_blank">{{site.data.footer.footer_link_name1}}</a></li>
+                            {% endif %}
+                            {% capture footer_link_name2_check %}{{site.data.footer.footer_link_name2_check}}{% endcapture %}
+                            {% if footer_link_name2_check == "true" %}
+                            <li><a href="{{site.data.footer.footer_link_url2}}" target="_blank">{{site.data.footer.footer_link_name2}}</a></li>
+                            {% endif %}
+                            {% capture footer_link_name3_check %}{{site.data.footer.footer_link_name3_check}}{% endcapture %}
+                            {% if footer_link_name3_check == "true" %}
+                            <li><a href="{{site.data.footer.footer_link_url3}}" target="_blank">{{site.data.footer.footer_link_name3}}</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+                {% capture footer4_link_title_check %}{{site.data.footer.footer4_link_title_check}}{% endcapture %}
+                {% if footer4_link_title_check == "true" %}
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-widget wow fadeIn" data-wow-duration="4s">
+                        <h5 class="footer-title heading-5">{{site.data.ui-text[site.locale].footer_followus | default: "Follow Us" }}</h5>
+                        <ul class="footer-socials list-inline">
+                            {% capture facebook %}{{site.data.footer.facebook}}{% endcapture %}
+                            {% if facebook != "" %}
+                                <li class="list-inline-item"><a href="{{facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            {% endif %}
+                            {% capture twitter %}{{site.data.footer.twitter}}{% endcapture %}
+                            {% if twitter != "" %}
+                                <li class="list-inline-item"><a href="{{twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            {% endif %}
+                            {% capture instagram %}{{site.data.footer.instagram}}{% endcapture %}
+                            {% if instagram != "" %}
+                                <li class="list-inline-item"><a href="{{instagram}}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            {% endif %}
+                            {% capture linkedin %}{{site.data.footer.linkedin}}{% endcapture %}
+                            {% if linkedin != "" %}
+                                <li class="list-inline-item"><a href="{{linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                            {% endif %}
+                            {% capture reddit %}{{site.data.footer.reddit}}{% endcapture %}
+                            {% if reddit !="" %}
+                                <li class="list-inline-item"><a href="{{reddit}}" target="_blank"><i class="fa fa-reddit"></i></a></li>
+                             {% endif %}
+                            {% capture vimeo %}{{site.data.footer.vimeo}}{% endcapture %}
+                            {% if vimeo != "" %}
+                                <li class="list-inline-item"><a href="{{vimeo}}" target="_blank"><i class="fa fa-vimeo"></i></a></li>
+                            {% endif %}
+                            {% capture dribbble %}{{site.data.footer.dribbble}}{% endcapture %}
+                            {% if dribbble != "" %}
+                                 <li class="list-inline-item"><a href="{{dribbble}}" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                            {% endif %}
+                            {% capture github %}{{site.data.footer.github}}{% endcapture %}
+                            {% if github != "" %}
+                                <li class="list-inline-item"><a href="{{github}}" target="_blank"><i class="fa fa-github"></i></a></li>
+                            {% endif %}
+                            {% capture youtube %}{{site.data.footer.youtube}}{% endcapture %}
+                            {% if youtube != "" %}
+                                <li class="list-inline-item"><a href="{{youtube}}" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            {% endif %}
+                            {% capture website %}{{site.data.footer.website}}{% endcapture %}
+                            {% if website != "" %}
+                                <li class="list-inline-item"><a href="{{website}}" target="_blank"><i class="fa fa-internet-explorer"></i></a></li>
+                            {% endif %}
+                            {% capture mail %}{{site.data.footer.mail}}{% endcapture %}
+                            {% if mail != "" %}
+                                <li class="list-inline-item"><a href="mailto:{{mail}}" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="col-md-6 col-lg-3">
+                       <script type="application/javascript">
+                        /* LEGGO L'URL DELLA PAGINA PER CAPIRE SE SONO NEL WIDGET */
+			            console.log("CARICO IL WIDGET DI TILEDESK");
+			            const queryString2 = window.location.search;
+                        console.log("queryString-widget "+queryString2);
+			            const urlParams2 = new URLSearchParams(queryString2);
+			            console.log("urlParams-widget "+urlParams2);
+                        console.log("window.parent.location "+window.parent.location);
+			            console.log("window.location "+window.location);
+                        var widget_active = "{{site.data.tiledesk.widget_active | json}}";
+                        console.log("widget_active ", widget_active);
+                        if ((urlParams2 == "embedded=tiledesk") || (window.parent.location === window.location)) {
+                            console.log("SONO NEL WEB ");
+                            if (widget_active == "true") {
+                            console.log("WIDGET ON ");
+                            var tiledesk_id = "{{site.data.tiledesk._id | json}}";
+                            window.tiledeskSettings= 
+                            {
+                                projectid: tiledesk_id
+                            };
+                            (function(d, s, id) { 
+                                var w=window; var d=document; var i=function(){i.c(arguments);};
+                                i.q=[]; i.c=function(args){i.q.push(args);}; w.SyncYou=i;                    
+                                var js, fjs=d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js=d.createElement(s); 
+                                js.id=id; js.async=true; js.src="https://widget.tiledesk.com/v6/launch.js";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document,'script','tiledesk-jssdk'));
+                            }
+                            if (widget_active == "false") {console.log("WIDGET OFF ");}
+                        } else {
+                            console.log("SONO NEL WIDGET ");
+                        }
+                    </script>   
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-wrapper">
+        <div class="container">
+            <div class="footer-copyright text-center">
+                <p> &copy; Copyright {{ site.time | date: '%Y' }} {{site.title}} - Powered by <a href="https://tiledesk.com/" target="_blank">SyncYou</a></p>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="home-top"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+</footer>
+<!-- End Footer Area -->

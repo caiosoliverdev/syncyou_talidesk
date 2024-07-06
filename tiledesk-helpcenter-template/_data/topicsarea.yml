@@ -1,0 +1,7 @@
+title: featured_articles
+subtitle:
+limit: 5
+display_mode: all
+widget:
+  - name: all_categories
+  - name: category_and_article

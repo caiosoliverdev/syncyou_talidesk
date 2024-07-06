@@ -1,0 +1,175 @@
+.label-wpr {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.setting-label {
+    color: #000;
+}
+
+.row-container {
+    margin-top: 20px
+}
+
+.field-box {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+
+
+// Slider
+
+.action-wait-slider {
+    align-items: center;
+    background: #e0e3f1;
+    border-radius: 13px;
+    display: inline-flex;
+    position: relative;
+    height: 26px;
+    padding: 0 9px 0 9px;
+    width: 100%;
+    text-align: center;
+    transition: width 0.3s ease-in;
+    font-size: 14px;
+}
+
+.action-wait-slider>mat-slider {
+    width: 100%;
+    margin-left: 6px;
+}
+
+.action-wait-range {
+    color: #506493;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.slider-output {
+    width: 60px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.action-wait-slider ::ng-deep {
+
+    .mat-accent .mat-slider-track-fill {
+        background-color: #1e293b !important;
+    }
+
+    .mat-slider-thumb-label {
+        background-color: #1e293b !important;
+    }
+
+    .mat-slider-thumb-label-text {
+        color: #e5eaf5 !important;
+    }
+
+    .mat-slider-thumb {
+        background-color: #1e293b !important;
+    }
+}
+
+.context-texarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    resize: vertical;
+    max-height: 300px;
+    min-height: 26px;
+}
+
+.mat-dialog-close-btn {
+    background-color: #647491;
+    color: #fff;
+}
+
+.mat-dialog-ok-btn {
+    background-color: var(--blue-light);
+    color: #fff;
+
+}
+
+.m-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.m-top-right-icon{
+    cursor: pointer;
+}
+
+.m-top-right-icon>span {
+    padding: 8px;
+    background: #e4e6eb;
+    border-radius: 999px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    font-size: 18px;
+    color: rgb(91,98, 106);
+    
+}
+
+.m-top-right-icon:hover>span {
+    background-color: rgb(213, 214, 220);
+    color: rgb(28, 30, 33) 
+}
+
+// .action-wait-content {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     gap: 5px;
+// }
+
+// .action-wait-range {
+//     color: var(--text-color);
+//     font-size: 11px;
+//     font-weight: 500;
+// }
+
+// .action-wait-slider {
+//     align-items: center;
+//     background: var(--slider-background-color);
+//     border-radius: 13px;
+//     display: inline-flex;
+//     position: relative;
+//     height: 26px;
+//     padding: 0 9px 0 9px;
+//     width: 100%;
+//     text-align: center;
+//     transition: width 0.3s ease-in;
+//     font-size: 14px;
+// }
+
+// .action-wait-slider>mat-slider {
+//     width: 100%;
+//     margin-left: 6px;
+// }
+
+// .action-wait-slider ::ng-deep{
+//     .mat-accent .mat-slider-track-fill {
+//         background-color: var(--text-color) !important;
+//     }
+//     .mat-slider-thumb-label {
+//         background-color: var(--text-color) !important;
+//     }
+//     .mat-slider-thumb-label-text{
+//         color: var(--background-color) !important;
+//     }
+//     .mat-slider-thumb {
+//         background-color: var(--text-color) !important;
+//     }
+// }

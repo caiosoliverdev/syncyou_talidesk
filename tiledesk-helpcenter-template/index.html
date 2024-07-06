@@ -1,0 +1,34 @@
+---
+layout: default
+add_to_menu: false
+---
+    {% include header.html %}
+    {% include animated_header.html %}
+    {% comment %}
+      {% if site.animated_header == "true" %}
+        {% include animated_header.html %}
+        {% else %}
+        {% include slider.html %}
+      {% endif %}
+      {% include header_bottom_area.html %}   
+      {% include topics_area.html %}
+      {% endcomment %}
+      {% for widget in site.data.topicsarea.widget %}
+         {% if widget.name ==  'all_categories' %}
+            {% include header_bottom_area.html %}
+         {% endif %}
+         {% if widget.name ==  'category_and_article' %}
+            {% include category_area.html %}
+         {% endif %}
+      {% endfor %}
+    {% comment %}
+      {% include faq_area.html %}
+      {% include timeline_area.html %}
+      {% include blog_and_items.html %}
+      {% include team_area.html %}
+      {% include testimonials.html %}
+      {% include call_to_action.html %}
+      {% include support_area.html %}
+      {% include footer_top_area.html %}
+    {% endcomment %}
+    {% include footer_custom.html %}

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+{% if page.lang %}<html lang={{page.lang}}></html>{% else %}<html lang={{site.locale}}>{% endif %}
+<head>
+    <!-- meta -->
+	<!-- NO INDEX DEL SITO DA FILE HEADER YML-->
+	{% if site.data.header.robots %}
+  	<meta name="robots" content="{{site.data.header.robots}}" />
+	  <!-- LOGS: {{site.data.header.robots}} -->
+	{% endif %}
+    <meta charset="utf-8">
+	<!-- v{{site.vers}} -->
+	<!--SEO-->
+	{% seo %}
+	{% if page.modified %}
+    	<meta property="article:modified_time" content="{{page.modified}}" />
+  	{% endif %}
+	<!--END SEO-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Facebook Open Graph -->	
+	{% if page.post_image %}<meta property="og:image" content="{{ page.post_image }}" ><meta property="og:image:secure_url" content="{{ page.post_image }}" >
+	<meta property="og:image:width" content="{{ page.post_image_width }}" />
+	<meta property="og:image:height" content="{{ page.post_image_height }}" />
+	{% else %}<meta property="og:image" content="{{ site.cover_image }}" ><meta property="og:image:secure_url" content="{{ site.cover_image }}" >{% endif %}
+	{% if page.tags %}{% for tag in page.tags %}<meta content="{{ tag }}" property="article:tag">{% endfor %}{% endif %}
+	{% if page.categories %}{% for category in page.categories limit:1 %}<meta content="{{ category }}" property="article:section">{% endfor %}{% endif %}
+	<!-- Start update layout standard-->
+	{% if page.modified %}
+		<meta property="article:modified_time" content="{{page.modified}}" />
+	{% endif %}
+	<!-- Page Author-->
+	<meta property="article:author" content="{{page.author}}" />
+	<meta property="article:publisher" content="{{page.author}}" /> <!--ATTENTO AUTORE E PUBBLICATORE COINCIDONO-->
+	 <!-- I use the page.categories property for OG tags. -->
+	{% for tag in page.categories %}
+	 	<meta property="article:tag" content="{{tag}}" />
+  	{% endfor %}
+	<!-- End update layout standard-->
+	<!-- Twitter cards -->
+	<meta name="twitter:site"    content="@{{ site.twitter_username }}">
+	<meta name="twitter:creator" content="@{{ page.twitter_username }}">
+	{% if page.title %}<meta name="twitter:title"   content="{{ page.title }}">{% else %}<meta name="twitter:title"   content="{{ site.title }}">{% endif %}	
+	<!-- controlla che il cmpo abstract non sia vuoto-->
+	{% if page.excerpt != "" %}<meta name="twitter:description" content="{{ page.excerpt }}">{% else %}<meta name="twitter:description" content="{{ site.description }}">{% endif %}
+	{% if page.post_image %}<meta name="twitter:card"  content="summary_large_image"><meta name="twitter:image" content="{{ page.post_image }}">{% else %}<meta name="twitter:card"  content="summary"><meta name="twitter:image" content="{{ site.cover_image }}">{% endif %}
+	<!--publish_date for linkedin -->
+	{% if page.date %}<meta name="publish_date" property="og:publish_date" content="{{ page.date | date_to_xmlschema }}" >{% endif %}	
+    <!--  Add Favicon -->
+	{% capture favicon_url %}{{site.data.header.favicon_url}}{% endcapture %}
+	{% if favicon_url != "" %}
+	<link rel="shortcut icon" href="{{ favicon_url | relative_url }}" type="image/x-icon"/>
+	<link rel="icon" href="{{ favicon_url | relative_url }}" type="image/x-icon"/>
+	{% else %}
+	<link rel="shortcut icon" href="{{ '/assets/images/favicon.png' | relative_url }}" type="image/x-icon"/>
+	<link rel="icon" href="{{ '/assets/images/favicon.png' | relative_url }}" type="image/x-icon"/>
+	{% endif %}
+	<!-- Add CSS File -->
+    <link rel="stylesheet" href="{{ '/assets/css/app.min.css' | relative_url }} "/>
+	<!-- Add MIO CSS File -->
+    <link rel="stylesheet"  id="myLinkd" media="screen and (min-width: 401px)" href="{{ '/assets/css/my_help_center.css' | relative_url }} "/>
+	<!-- Add CSS x Widget di SyncYou -->
+	<link rel="stylesheet" id="myLinkw" media="screen and (max-width: 400px)" href="{{ '/assets/css/widget.css' | relative_url }}"/> 
+	<!-- Add BUILDING CSS  -->
+	<!-- <link rel="stylesheet" href="{{ '/assets/css/building.css' | relative_url }} "/> -->
+	<!-- Add SITE-PREVIEW CSS  -->
+	<!-- <link rel="stylesheet" href="{{ '/assets/css/site-preview.css' | relative_url }} "/> -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+	<!-- SERVER: {{jekyll.environment}} -->
+	{% if site.google_analytics != "" and jekyll.environment == 'production' %}
+	<!-- Add GOOGLE ANALYTICS TRACKING ID  -->
+		{% include analytics.html %}
+	{% endif %}
+</head>
+
+<body>
+   {{ content }}
+    <!-- Netfly Identity widget -->
+
+<script>
+	if (window.netlifyIdentity) {
+	  window.netlifyIdentity.on("init", user => {
+		if (!user) {
+		  window.netlifyIdentity.on("login", () => {
+			document.location.href = "/admin/";
+		  });
+		}
+	  });
+	}
+  </script>
+    <!-- Add Javascript File -->
+   <script src="{{ '/assets/js/build.min.js' | relative_url }}"></script>
+   		<script>
+			$(function() {
+				$('a[href*=\\#]').not(".no-smooth").on('click', function(event){
+					var el = $(this.hash);
+					if (el.length > 0) {
+						// event.preventDefault();
+						$('html,body').animate({scrollTop:$(this.hash).offset().top - 100}, 500);
+					}
+				});
+
+				});
+		</script>
+		<script>
+			/* LEGGO L'URL DELLA PAGINA */
+			console.log("LAYOUT POST");
+			const queryString1 = window.location.search;
+			console.log("queryString "+queryString1);
+			const urlParams1 = new URLSearchParams(queryString1);
+			console.log("urlParams "+urlParams1);
+			const collectiond = document.getElementById("myLinkd");
+			const collectionw = document.getElementById("myLinkw");
+			const frameEl = window.frameElement;
+			console.log("frameEL "+frameEl);
+			/* Add CSS x Widget di SyncYou */
+			console.log("window.parent.location "+window.parent.location);
+			console.log("window.location "+window.location);
+			if (frameEl ||(urlParams1 == "embedded=tiledesk") || (window.parent.location !== window.location)) {
+			  console.log("HC into widget1");
+			  console.log("CSS "+collectionw.getAttribute("id"));
+			  console.log("CSS "+collectionw.getAttribute("media"));
+			} else {
+			 collectionw.setAttribute('media','screen and (max-width: 0px)');
+			 collectiond.setAttribute('media','screen and (min-width: 1px)');
+			 console.log("CSS "+collectionw.getAttribute("id"));
+			 console.log("CSS "+collectionw.getAttribute("media"));
+			 console.log("HC on web1");
+			}
+		 </script>
+</body>      
+</html>

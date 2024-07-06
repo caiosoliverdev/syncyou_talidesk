@@ -1,0 +1,66 @@
+<!--
+DEB1: {{post.header.teaser}}
+{% if post.header.teaser %}
+{% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{% else %}
+  {% assign teaser = site.teaser %}
+DEB2: {{site.teaser}}
+{% endif %}
+
+DEB3: {{post.id}}
+{% if post.id %}
+  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign title = post.title %}
+{% endif %}
+DEB4: {{title}}
+DEB5: {{include.type}}
+-->
+<div class="{{ include.type | default: 'list' }}__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+  
+     <!--CAPISCI SE SEI IN UNA CATEGORIA ALLORA STAMPI LE SEZIONI, SE INVECE SEI IN UNA SEZIONE STAMPI I POST-->
+     <!--DEB 9: {{page.url}} -->
+     {% capture my_category %}{{page.url | remove: '/categories/' }}{% endcapture %}
+     {% capture my_cate %}{{my_category | remove: "/" }}{% endcapture %}
+     <!--DEB10: {{my_cate}}-->
+     <!--CERCO TUTTE LE CATEGORIE-->
+     {% assign my_categories =  site.data.category.category | where: 'type' ,'(categoria)' %}
+    <!-- DEB11: {{my_categories}} -->
+    <!--SE MI TROVO IN UNA SEZIONE STAMPO I POST-->
+     {% for my_cat in my_categories %}
+     <!-- DEB 12: {{my_cat.url}} -->
+     {% assign i = 0 %}
+     {% if my_cat.url == my_cate %}
+     <!--SE SONO IN UNA CATEGORIA VISUALIZZO LE SEZIONI-->
+      {% if i == 0 %}
+        <!--DEB14: {{my_cat.url}} -- {{my_cate}}-->
+        {% assign i = 1 %}
+        {% assign my_sections =  site.data.category.category | where: 'type' ,'(sezione)' %}
+          {% for my_sez in my_sections %}
+              {% capture my_sections_label %}{{my_sez.label}}{% endcapture %}
+              <!-- {{my_sections_label}}-->
+              {% capture my_sections_url %}{{my_sections.url}}{% endcapture %}
+              <h5 class="heading-5" itemprop="headline">
+                <a href="{{ my_sections.url | relative_url }}" rel="permalink">{{my_sections_label}}</a>
+              </h5>
+          {% endfor %}
+      {% endif %}
+    {% else %}
+    {% if i == 1 %}
+    <!--SONO IN UNA SEZIONE ALLORA CONTROLLO IN QUALE SEZIONE MI TROVO E STAMPO GLI ARTICOLI ASSOCIATI-->
+     <!--CERCO TUTTE LE SEZIONI-->
+     {% assign my_sections =  site.data.category.category | where: 'type' ,'(sezione)' %}
+        <!--DEB13: {{my_sections}} -->
+        <!--ESTRAPOLO DALL'URL LA SEZIONE-->
+        
+        <!--SE SONO IN UNA SEZIONE VISUALIZZO GLI ARTICOLI-->
+        <h5 class="heading-5" itemprop="headline">
+          <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+        </h5>
+        {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </article>
+</div>

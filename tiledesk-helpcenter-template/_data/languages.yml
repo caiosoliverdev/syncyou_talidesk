@@ -1,0 +1,10 @@
+items:
+- name: it
+  label: Italian
+  icon: 🇮🇹
+- name: en
+  label: English
+  icon: 🇺🇸
+- name: es
+  label: Español
+  icon: 🇪🇸

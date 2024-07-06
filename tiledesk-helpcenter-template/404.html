@@ -1,0 +1,37 @@
+---
+layout: default
+title: Page could not be found
+description: "Meta description for 404 page"
+add_to_menu: false
+permalink: /404.html
+---
+
+       <!-- Start Page Title Area -->
+      {% capture custom_color %}{{site.data.header.custom_color}}{% endcapture %}
+      {% capture img_header %}{{site.data.header.img_header}}{% endcapture %}
+      {% if img_header != ""%}
+         <section class="page-title-area bg-cover-custom" id="header_cover_img" style= "background-color:{{custom_color}}!important; background-image: url({{img_header}}); min-height: 450px; background-size: cover; background-repeat: no-repeat; background-position: center !important;"> 
+      {% else %}
+         <section class="page-title-area bg-cover-custom" id="header_cover"  style="min-height: 450px; background-color:{{custom_color}}!important;">
+      {% endif %}
+         <div class="page-title-wrapper section-spacing">
+            <div class="page-title text-center white-text">
+               <h1 class="heading-1">404</h1>
+            </div>
+         </div>
+      </section>
+      <!-- End Page Title Area -->
+      <!-- Start Blog  Area -->
+      <section class="blog-area bg-color1">
+         <div class="blog-wrapper section-spacing">
+            <div class="container">
+                  <div class="error-page text-center">
+                      <img src="/assets/images/404.png" alt="error logo">
+                      <p><a href="{{ '/' | relative_url }}" class="btn-style1 btn">Back to Home</a></p>
+                  </div>
+            </div>
+         </div>
+      </section>
+      <!-- End Blog Area -->
+	  
+ 

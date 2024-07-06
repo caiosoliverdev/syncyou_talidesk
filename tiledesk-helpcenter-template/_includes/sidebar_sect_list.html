@@ -1,0 +1,40 @@
+<!--  SEZIONE CHE VISUALIZZA L'ELENCO DELLE SEZIONI DELL'HELP CENTER-->
+<div class="sidebar-area sidebar-widget">
+  <h4 class="sub-title heading-4">{{site.data.ui-text[site.locale].sections_label | default: "sections -"}}</h4>
+  <!-- <div class="changelog-service wow fadeIn" data-wow-duration="3s"> -->
+  <div class="changelog-service">
+  <ul class="changelog-list list-inline">
+  <!--RIMUOVO DALL'URL /CATEGORIES/ E CATTURO LA SEZIONE-->
+  {% capture section_n %}{{ page.url | remove: "/categories/"}}{% endcapture %}
+  {% capture section_name %}{{ section_n | remove: "/"}}{% endcapture %}
+    <!--PRENDO SOLO LE SEZIONI DELLA CATEGORIA-->
+    <!-- DEB1:{{section_name}} -->
+   {% assign my_sections =  site.data.category.category | where: 'url' , section_name | first %}
+   {% assign all_sections =  site.data.category.category | where: 'category_key' , my_sections.category_key %}
+   <!--DEB3: {{all_sections}}-->
+   {% for section in all_sections %}
+   {% capture section_draft %}{{ section.draft}}{% endcapture %}
+     {% if section_draft == "false" %}
+     <div class="recent-wrapper">
+        <div class="recent-details">
+          <li>
+            <!-- <i class="changelog-fix"></i> -->
+            <!--CONTROLLO CHE NELLA SEZIONE CI SIA ALMENO UN POST-->
+            {% capture section_key %}{{section.key}}{% endcapture %}
+            {% capture section_cat_key %}{{section.category_key}}{% endcapture %}
+            {% assign all_posts_of_section = site.categories[section_key] | where: 'category_key', section_cat_key | where: 'draft' ,'false' %}
+           <!--DEB1 {{all_posts_of_section.size}} DEB2 {{section_key}} DEB3 {{section_cat_key}}-->
+            {% if all_posts_of_section.size > 0 %}
+              {% assign my_section_url = "/categories/" | append: section.url %}
+              <a href="{{ my_section_url  | relative_url }}/" class="article_link">{{ section.label }}</a>
+              <p class="archive__item-excerpt" itemprop="description"></p>
+            {% else %}
+              {{ section.label }}
+            {% endif %}
+          </li>
+        </div>
+     {% endif %}
+    {% endfor %}
+  </ul>
+  </div>
+  </div>

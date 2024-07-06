@@ -1,0 +1,102 @@
+---
+layout: category_list
+title: Year Archives
+add_to_menu: false
+description: "all articles of the help center"
+---
+<div class="topics-area bg-color1">
+   <div class="topics-wrapper section-spacing bminus-30">
+      <div class="container">
+         <div class="col">
+            {% assign posts_number = 0 %}
+            {%- assign posts = site.posts | where: 'draft' ,'false' -%}
+            {%- assign groupedByYear = posts | group_by_exp:"post","post.date | date:'%Y' " -%}
+            {%- for yearitem in groupedByYear -%}
+            <!--CONTATORE POST-->
+            {% assign posts_number = 0 %}
+            {%- for item in yearitem.items -%}
+            <!--CAPISCO SE LA CATEGORIA E' DRAFT-->
+            {% capture category_post %}{{ item.categories[0]}}{% endcapture %}
+            {% if category_post != nil %}
+            {% assign category = site.data.category.category | where: 'key' ,category_post | where: 'type' ,
+            '(categoria)' | first%}
+            {% capture category_draft %}{{ category.draft}}{% endcapture %}
+            {% if category_draft == "false" %}
+            <!--CAPISCO SE LA SEZIONE E' DRAFT-->
+            {% capture section_post %}{{ item.categories[1]}}{% endcapture %}
+            {% if section_post != nil %}
+            {% assign section = site.data.category.category | where: 'key' ,section_post | where: 'type' , '(sezione)' |
+            first%}
+            {% capture section_draft %}{{ section.draft}}{% endcapture %}
+            {% if section_draft == "false" or section_draft == "" %}
+            <!--CAPISCO SE IL POST E' DRAFT-->
+            {% capture post_draft %}{{ item.draft}}{% endcapture %}
+            {% if post_draft == "false" %}
+            {% assign posts_number = posts_number | plus: 1 %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            <!--FINE CONTATORE POST-->
+            <div class="row">
+               <!-- <article class="topics-service bg-color3 wow fadeIn" style="width: 700px;" data-wow-duration="3s"> -->
+               <article class="topics-service bg-color3" style="width: 700px;">
+                  <header class="topics-title">
+                     <h3 class="heading-3 text-capitalize">{{ yearitem.name }} ({{posts_number}})</h3>
+                  </header>
+                  <ul class="list-inline">
+                     {%- for item in yearitem.items -%}
+                     <!--CAPISCO SE LA CATEGORIA E' DRAFT-->
+                     {% capture category_post %}{{ item.categories[0]}}{% endcapture %}
+                     {% if category_post != nil %}
+                     {% assign category = site.data.category.category | where: 'key' ,category_post | where: 'type' ,
+                     '(categoria)' | first%}
+                     {% capture category_draft %}{{ category.draft}}{% endcapture %}
+                     {% if category_draft == "false" %}
+                     <!--CAPISCO SE LA SEZIONE E' DRAFT-->
+                     {% capture section_post %}{{ item.categories[1]}}{% endcapture %}
+                     {% if section_post != nil %}
+                     {% assign section = site.data.category.category | where: 'key' ,section_post | where: 'type' ,
+                     '(sezione)' | first%}
+                     {% capture section_draft %}{{ section.draft}}{% endcapture %}
+                     {% if section_draft == "false" or section_draft == "" %}
+                     <!--CAPISCO SE IL POST E' DRAFT-->
+                     {% capture post_draft %}{{ item.draft}}{% endcapture %}
+                     {% if post_draft == "false" %}
+                     <li>
+                        <span><a href="{{ item.url | relative_url}}" class="article_link">{{ item.title }}</a></span>
+                        - <date>{{ item.date | date:'%B %e'}}</date>
+                     </li>
+                     {% endif %}
+                     {% endif %}
+                     {% endif %}
+                     {% endif %}
+                     {% endif %}
+                     {% endfor %}
+                  </ul>
+               </article>
+            </div>
+            {% endfor %}
+            {% if posts_number == 0 %}
+
+            <div class="nocontent" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+               <img src="../assets/images/no-content-blue.png" width="200px" height="auto">
+               <p class="center" id="writeoop">
+                  {{site.data.ui-text[site.locale].archives_no | default: "Oops! There seems to be no content." }}</p>
+           </div>
+
+            <!-- <div class="nocontent">
+               <h7 class="heading-7">
+                  <p class="center">{{site.data.ui-text[site.locale].archives_no | default: "Create an article .." }}
+                  </p>
+               </h7>
+            </div> -->
+            {% endif %}
+         </div>
+      </div>
+   </div>
+</div>
+</section>
+<!-- End Topics Area -->

@@ -1,0 +1,155 @@
+<div class="m-header">
+    <h1 mat-dialog-title> {{ 'KbPage.AISettings'| translate}} </h1>
+    <div class="m-top-right-icon">
+      <span class="material-icons-outlined" (click)="closeSettingsAndOpenPreviewKBModal()">
+        play_arrow
+      </span>
+    </div>
+</div>
+
+
+<div mat-dialog-content>
+    <div class="row-container"  style="margin-top: 0px;">
+        <label class="setting-label">
+            <!-- AI Model -->
+            {{ 'KbPage.SelectEngine'| translate}}
+        </label>
+        <ng-select class="" 
+            appendTo="body" 
+            [items]="model_list"
+            bindLabel="name"
+            bindValue="value"
+            placeholder="{{ 'KbPage.PlaceholderSelectEngine' | translate }}"
+            [clearable]="false"
+            [(ngModel)]="selectedModel"
+            (change)="onSelectModel(selectedModel)">
+
+            <ng-template ng-label-tmp let-item="item">
+                <div style="display: flex;"> 
+                    <div style="font-weight: 400;">
+                        {{item.name}} 
+                    </div>
+                    <div *ngIf="item.multiplier" style="color: rgba(0, 0, 0, .6);font-weight: 400; position: absolute;right: 25px;"> 
+                       {{item.multiplier }} 
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-index="index">
+                <div style="display: flex;flex-direction: row; justify-content: space-between;"> 
+                    <div style="font-weight: 400;"> 
+                        {{item.name}} 
+                    </div>
+                    <div *ngIf="item.multiplier" style="color: rgba(0, 0, 0, .6);font-weight: 400;"> 
+                        {{item.multiplier }} 
+                    </div>
+                </div>
+            </ng-template>
+        </ng-select>
+    </div>
+
+    <div class="row-container">
+        <div class="label-wpr">
+            <label class="setting-label">
+                <!-- Max Tokens -->
+            {{ 'KbPage.MaxTokens'| translate}}
+            </label>
+           
+        </div>
+
+        <div class="field-box"> 
+            <div class="action-wait-slider">
+                <div class="action-wait-range">1</div>
+                <mat-slider 
+                    class="wait-slider" 
+                    thumbLabel 
+                    step="1"  min="1" max="512"
+                    [(ngModel)]="max_tokens"
+                    (change)="updateSliderValue($event.value, 'max_tokens')" 
+                    aria-label="units">
+                </mat-slider>
+                <div class="action-wait-range">512</div>
+            </div>
+            <input type="text" class="slider-output" value="{{max_tokens}}" disabled>
+        </div>
+    </div>
+
+    <div class="row-container">
+        <div class="label-wpr">
+            <label class="setting-label">
+                <!-- Temperature -->
+                {{ 'KbPage.Temperature'| translate}}
+            </label>
+        </div>
+        <div class="field-box"> 
+            <div class="action-wait-slider">
+                <div class="action-wait-range">0</div>
+                <mat-slider 
+                    class="wait-slider" 
+                    thumbLabel 
+                    step="0.05"  min="0" max="1"
+                    [(ngModel)]="temperature"
+                    (change)="updateSliderValue($event.value, 'temperature')" 
+                    aria-label="units">
+                </mat-slider>
+                <div class="action-wait-range">1</div>
+            </div>
+            <input type="text" class="slider-output" value="{{temperature}}" disabled>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <div class="label-wpr">
+            <label class="setting-label">
+                <!-- {{ 'KbPage.ChunkLimit'| translate}} -->
+                Chunks
+            </label>
+        </div>
+        <div class="field-box"> 
+            <div class="action-wait-slider">
+                <div class="action-wait-range">1</div>
+                <mat-slider 
+                    class="wait-slider" 
+                    thumbLabel 
+                    step="1"  min="0" max="10"
+                    [(ngModel)]="topK"
+                    (change)="updateSliderValue($event.value, 'top_k')" 
+                    aria-label="units">
+                </mat-slider>
+                <div class="action-wait-range">10</div>
+            </div>
+            <input type="text" class="slider-output" value="{{topK}}" disabled>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <div class="label-wpr">
+            <label class="setting-label">
+                <!-- System context -->
+                {{ 'KbPage.SystemContext'| translate}}
+            </label>
+        </div>
+
+        <textarea  class="context-texarea" [(ngModel)]="context" rows="4"
+        placeholder="You are an awesome assistant"
+        (ngModelChange)="onChangeTextInContex($event)">  </textarea>
+       
+    </div>
+
+  
+</div>
+
+<div mat-dialog-actions style="justify-content: center;">
+    <button class="mat-dialog-close-btn" mat-button (click)="onNoClick()">
+        {{ "Cancel" | translate }}
+       
+    </button>
+   
+    <button class="mat-dialog-ok-btn" mat-button
+        (click)="onSavePreviewSettings()" cdkFocusInitial>
+       
+       
+       {{ "Save" | translate }}
+        
+    </button>
+</div>
+

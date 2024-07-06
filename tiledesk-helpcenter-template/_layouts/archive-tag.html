@@ -1,0 +1,70 @@
+---
+layout: default
+author_profile: false
+---
+ <!-- PAGINA ELENCO DEI POST DI UNA CATEGORIA -->
+{% include header.html %}
+   <!-- Start Page Title Area -->
+   {% capture custom_color %}{{site.data.header.custom_color}}{% endcapture %}
+   {% capture img_header %}{{site.data.header.img_header}}{% endcapture %}
+   {% if img_header != ""%}
+      <section class="page-title-area bg-cover-custom" id="header_cover_img" style= "background-color:{{custom_color}}!important; background-image: url({{img_header}}); min-height: 450px; background-size: cover; background-repeat: no-repeat; background-position: center !important;"> 
+   {% else %}
+      <section class="page-title-area bg-cover-custom" id="header_cover"  style="min-height: 450px; background-color:{{custom_color}}!important;">
+   {% endif %}
+      <div class="page-title-wrapper section-spacing">
+         <div class="page-title text-center white-text">
+            <h2 class="heading-2">{{page.title | replace: '_', '-' }}</h2>
+         </div>
+      </div>
+   </section>
+   <!-- End Page Title Area -->
+   {% include breadcrumbs.html %}
+    <!-- Start Blog  Area -->   
+    <section class="blog-area bg-color1">
+      <div class="blog-wrapper section-spacing bminus-30">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-7 col-lg-8">
+                {% assign posts = page.posts | where: 'draft','false'%}
+                {% for post in posts %}
+                 <!-- ELIMINO I POST IN CATEGORIE O SEZIONI DRAFT --> 
+                 {% assign cat = site.data.category.category | where: 'key' , post.categories[0] | where: 'type' ,'(categoria)' | first%}
+                 {% if cat.size > 0%}
+                  {% capture cat_draft %}{{cat.draft}}{% endcapture %}
+                  {% if cat_draft == "false" %}
+                     {% assign sez = site.data.category.category | where: 'key' , post.categories[1] | where: 'type' ,'(sezione)' | first%}
+                     {% if sez.size > 0%}  <!-- SE SONO IN SEZIONE --> 
+                        {% capture sez_draft %}{{sez.draft}}{% endcapture %}
+                        {% if  sez_draft == "false" %}
+                           <div class="{{ include.type | default: 'list' }}__item">
+                              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                                    <h7 class="heading-7" itemprop="headline" style="margin-bottom: -2px;">
+                                    <a href="{{ post.url | relative_url }}" rel="permalink" class="article_link">{{ post.title }}</a>
+                                    </h7>
+                              </article>
+                           </div>
+                        {% endif%}
+                     {% else %} <!-- SE SONO IN CATEGORIA --> 
+                        <div class="{{ include.type | default: 'list' }}__item">
+                           <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                                 <h7 class="heading-7" itemprop="headline" style="margin-bottom: -2px;">
+                                 <a href="{{ post.url | relative_url }}" rel="permalink" class="article_link">{{ post.title }}</a>
+                                 </h7>
+                           </article>
+                        </div>
+                     {% endif%}
+                  {% endif%}
+                {% endif%}
+               {% endfor %}
+               </div>
+               <div class="col-md-5 col-lg-4">
+                {% include sidebar_cat_list.html %}
+                {% include sidebar_new_post_list.html %}
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- End Blog Area -->
+{% include footer_custom.html %}
