@@ -1,5 +1,0 @@
-User-agent: Twitterbot
-Disallow: *
-User-agent: * 
-Disallow: /
-Sitemap: your-site-url/sitemap.xml

@@ -3,7 +3,7 @@
 ### **Authors**: 
     *Gabriele Panico*
     *Dario De Pascalis* 
-### **Copyrigth**: *SyncYou SRL*
+### **Copyrigth**: *Tiledesk SRL*
 
 ### 5.0.79 in PROD
 
@@ -111,7 +111,7 @@
 - bug-fixed: do not disable url buttons on carousel element
 - bug-fixed: do not sound if convAdded is fired and on reconnect event
 - bug-fixed: init Rules only if widget is closed
-- removed: 'Powereb By SyncYou' on conversation and home components only for chatbot-panel.html page
+- removed: 'Powereb By Tiledesk' on conversation and home components only for chatbot-panel.html page
 
 ### 5.0.71-rc.3
 - added: delete method for firebase-upload service
@@ -816,7 +816,7 @@
 - added: onBeforeInit tiledesk event
 - added: checkImageExists function in image-repo.service
 - changed: launch.js file -> replace onInit with onBeforeInit
-- bug-fixed: window.SyncYou function wasn't created if widget don't have any event queued
+- bug-fixed: window.Tiledesk function wasn't created if widget don't have any event queued
 - bug-fixed: if tiledeskToken passed is different from stored one, remove item with key 'recipientId' in storage 
 
 ### 5.0.19-rc.11
@@ -1074,7 +1074,7 @@
 ### 5.0.0-beta.3.15
 - bug-fixed: archived conversation was removed when user viewed its detail for the first time
 - added: paste event on conversation-footer only for image file type
-- changed: new SyncYou logo in poweredBy footer html code
+- changed: new Tiledesk logo in poweredBy footer html code
 
 ### 5.0.0-beta.3.14
  - bug-fixed: badgeNumberConversation is 0
@@ -1108,7 +1108,7 @@
 - added: logLevel tiledeskSetting property to manage log 
 - added: enabled chance to open widget into a specific conv by url with tiledesk_recipientid
 - changed: removed activeConversation json from storage and saved only uid with 'PREFIX_recipientId' key
-- bug-fixed: window.SyncYou.q undefined in launch.js
+- bug-fixed: window.Tiledesk.q undefined in launch.js
 
 ### 5.0.0-beta.3.9
 - added: fade-in animation when open chat-internal-frame component for self action button
@@ -1192,7 +1192,7 @@
 
 
 ### 5.0.0-beta.2.6
-- bug-fix: translation error with /assets/ pages (ex. SyncYou visitor page)
+- bug-fix: translation error with /assets/ pages (ex. Tiledesk visitor page)
 - bug-fix: after archived a converversation when open new conversation always show rating component
 - bug-fix: conversationBadge not show when refresh closed widget 
 - bug-fix: prechat form shown always, not only the first time

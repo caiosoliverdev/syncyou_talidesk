@@ -58,7 +58,7 @@ function loadIframe(tiledeskScriptBaseLocation) {
     var ifrm = document.createElement("iframe");
     ifrm.setAttribute("frameborder", "0");
     ifrm.setAttribute("border", "0");
-    ifrm.setAttribute("title", "SyncYou Widget")
+    ifrm.setAttribute("title", "Tiledesk Widget")
        
     var srcTileDesk = '<html lang="en">';
     srcTileDesk += '<head>';
@@ -218,10 +218,10 @@ function initAysncEvents() {
   console.log('INIT ASYNC EVENTS')
 
   window.tileDeskAsyncInit = function() {  
-    // console.log('launch tiledeskAsyncInit:::', window.SyncYou.q)
+    // console.log('launch tiledeskAsyncInit:::', window.Tiledesk.q)
     window.tiledesk.on('onLoadParams', function(event_data) {
-      if (window.SyncYou && window.SyncYou.q && window.SyncYou.q.length>0) {
-        window.SyncYou.q.forEach(f => {
+      if (window.Tiledesk && window.Tiledesk.q && window.Tiledesk.q.length>0) {
+        window.Tiledesk.q.forEach(f => {
           if (f.length>=1) {
             var functionName = f[0];
             if (functionName==="onLoadParams") {
@@ -252,9 +252,9 @@ function initAysncEvents() {
     });
 
     window.tiledesk.on('onBeforeInit', function(event_data) {
-      if (window.SyncYou && window.SyncYou.q && window.SyncYou.q.length>0) {
-        // console.log("w.q", window.SyncYou.q);
-        window.SyncYou.q.forEach(f => {
+      if (window.Tiledesk && window.Tiledesk.q && window.Tiledesk.q.length>0) {
+        // console.log("w.q", window.Tiledesk.q);
+        window.Tiledesk.q.forEach(f => {
           if (f.length>=1) {
             var functionName = f[0];
             if (functionName==="onLoadParams" || functionName==="setParameter") {
@@ -264,7 +264,7 @@ function initAysncEvents() {
               if (f.length==2) {
                 var functionCallback = f[1];
                 if(typeof functionCallback === "function"){
-                  window.tiledesk.on(functionName, functionCallback); //potrei usare window.SyncYou ?!?
+                  window.tiledesk.on(functionName, functionCallback); //potrei usare window.Tiledesk ?!?
                   if (functionName==="onBeforeInit") {
                       functionCallback(event_data)
                   }
@@ -288,7 +288,7 @@ function initAysncEvents() {
       }
 
       // RICHIAMATO DOPO L'INIT DEL WIDGET
-      window.SyncYou = function() {
+      window.Tiledesk = function() {
         if (arguments.length>=1) {
           var functionName = arguments[0];
           if (arguments.length==2) {

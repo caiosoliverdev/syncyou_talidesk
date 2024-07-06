@@ -65,7 +65,7 @@
 
       (function(d, s, id) {
         var w = window; var d = document; var i = function () {i.c(arguments);};
-        i.q = []; i.c = function (args) {i.q.push(args);}; w.SyncYou = i;
+        i.q = []; i.c = function (args) {i.q.push(args);}; w.Tiledesk = i;
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s);
@@ -75,30 +75,30 @@
       }(document, 'script', 'tiledesk-jssdk'));
      
 
-      window.SyncYou('logout');
+      window.Tiledesk('logout');
 
-      window.SyncYou('onLoadParams', function(event_data) {
-        console.log("onLoadParams SyncYou FN", event_data);
+      window.Tiledesk('onLoadParams', function(event_data) {
+        console.log("onLoadParams Tiledesk FN", event_data);
         // let token = 'JWT eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI4ODgzNTQ4Ny05ZjllLTRiMGItOGRmNy0wMDA0NWUwYTY4NjYiLCJmaXJzdG5hbWUiOiJndWVzdCM4ODgzIiwiaWQiOiI4ODgzNTQ4Ny05ZjllLTRiMGItOGRmNy0wMDA0NWUwYTY4NjYiLCJmdWxsTmFtZSI6Imd1ZXN0Izg4ODMgIiwiaWF0IjoxNzEyNzQyNTA1LCJhdWQiOiJodHRwczovL3RpbGVkZXNrLmNvbSIsImlzcyI6Imh0dHBzOi8vdGlsZWRlc2suY29tIiwic3ViIjoiZ3Vlc3QiLCJqdGkiOiJkNDJhZmY5MS0xZTgxLTQyYjAtOGIyYS1mMjU3YzdmMzc4YWEifQ.UCKvk5VE4XMlXKB20hjOYZTuq3YE1XyfpcXQfJnwclgvFaoyZzIuX5_1mz1ZMauWMV69ZecwkkwKb1S6rPH4bf0VqWO0Ez9LJYA1ZI0FU4HZO4oAGivYh-tPArP41k7bxl369314QKesm4-a7_S81T_i4wrmB663u7th5WVKjkg'
-        // window.SyncYou('signInWithCustomToken',token);
-        window.SyncYou('signInAnonymous')
+        // window.Tiledesk('signInWithCustomToken',token);
+        window.Tiledesk('signInAnonymous')
         
       });
 
-      window.SyncYou('onBeforeInit', function(event_data) {
-        console.log("onBeforeInit SyncYou FN", event_data);
+      window.Tiledesk('onBeforeInit', function(event_data) {
+        console.log("onBeforeInit Tiledesk FN", event_data);
        
       });
       
-      window.SyncYou('onAuthStateChanged', function(event_data) {
+      window.Tiledesk('onAuthStateChanged', function(event_data) {
         console.log("onAuthStateChanged FN", event_data);
         if (event_data.detail.isLogged) {
           document.getElementById("status").innerHTML = "Signed in.";
-          window.SyncYou('show')
+          window.Tiledesk('show')
         }
       });
 
-      window.SyncYou('onLoggedOut', function(event_data) {
+      window.Tiledesk('onLoggedOut', function(event_data) {
         console.log("onLoggedOut FN", event_data);
       });
 
@@ -137,7 +137,7 @@
     </script>
   </head>
   <body>
-    <h1>SyncYou Custom JWT Authentication live App</h1>
+    <h1>Tiledesk Custom JWT Authentication live App</h1>
     <h2 id="status">Authenticating...</h2>
   </body>
 </html>

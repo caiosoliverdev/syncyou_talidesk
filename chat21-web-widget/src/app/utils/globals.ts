@@ -277,7 +277,7 @@ export class Globals {
     email address.  */
     this.widgetTitle = '';
     /** Set the widget title label shown in the widget header. Value type : string.
-    The default value is SyncYou. */
+    The default value is Tiledesk. */
     this.dynamicWaitTimeReply = true;  
     /** The user can decide whether or not to share the 
      * average response time of his team (if 'dynamicWaitTimeReply' is 
@@ -421,7 +421,7 @@ export class Globals {
     // this.parameters.push({'tenant': environment.tenant});
 
     /** Set the widget title label shown in the widget header. Value type : string.
-    The default value is SyncYou. */
+    The default value is Tiledesk. */
                                                         /** name tenant ex: tilechat */
     this.channelType = CHANNEL_TYPE.GROUP;
     // this.parameters['channelType'] = CHANNEL_TYPE.GROUP;

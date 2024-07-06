@@ -18,7 +18,7 @@
             --font-family-poppins: 'Poppins', 'Roboto', Arial, sans-serif;
             --blu: #506493;
             --gray-light-02: rgb(223, 227, 237);
-            --base-company-logo: rgb(18,116,9);
+            --base-company-logo: rgb(224,106,88);
             --header-height: 80px;
             --footer-height: 80px;
         }
@@ -462,8 +462,8 @@
         }
     </script> -->
 
-    <meta property="og:title" content="Try SyncYou now!" />
-    <meta property="og:description" content="Qualify your leads to increase your sales faster. It's really easy to do it with the SyncYou conversational form builder" />
+    <meta property="og:title" content="Try Tiledesk now!" />
+    <meta property="og:description" content="Qualify your leads to increase your sales faster. It's really easy to do it with the Tiledesk conversational form builder" />
     <meta property="og:image" content="https://tiledesk.com/wp-content/uploads/2022/12/6029654-02-min.png" />
     <meta property="og:locale" content="en">
     
@@ -488,7 +488,7 @@
             i.c=function(args){       //c-> call
                 i.q.push(args);
             };
-            w.SyncYou=i;
+            w.Tiledesk=i;
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); 
@@ -500,8 +500,8 @@
             document.dispatchEvent(new Event('mousemove'))
         })
 
-        window.SyncYou('onLoadParams', function(event_data) {
-            console.log("onLoadParams SyncYou FN", event_data);
+        window.Tiledesk('onLoadParams', function(event_data) {
+            console.log("onLoadParams Tiledesk FN", event_data);
             // window.tiledesk.open();
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onLoadParams --> FIRED!' + '\n' 
@@ -512,8 +512,8 @@
             document.getElementById("project_name").innerHTML = project_name;
         });
 
-        window.SyncYou('onBeforeInit', function(event_data) {
-            console.log("onBeforeInit SyncYou FN", event_data); 
+        window.Tiledesk('onBeforeInit', function(event_data) {
+            console.log("onBeforeInit Tiledesk FN", event_data); 
 
             var brandSrc = event_data.detail.appConfigs.brandSrc? getBrandResources(event_data.detail.appConfigs.brandSrc) : null;
 
@@ -535,8 +535,8 @@
             }
         });
         
-        window.SyncYou('onInit', function(event_data) {
-            console.log("onInit SyncYou FN", event_data); 
+        window.Tiledesk('onInit', function(event_data) {
+            console.log("onInit Tiledesk FN", event_data); 
             setTimeout(() => {
                 initLang();
                 initDefaultSettings();
@@ -547,98 +547,98 @@
             //open widget after 3s if is closed
             // setTimeout(() => {
             //     if(event_data && event_data.detail && event_data.detail.global && !event_data.detail.global.isOpen){
-            //         window.SyncYou('open')
+            //         window.Tiledesk('open')
             //     }
             // }, 3000);
         });
         
-        window.SyncYou('onAuthStateChanged', function(event_data) {
-            console.log("onAuthStateChanged SyncYou FN", event_data); 
+        window.Tiledesk('onAuthStateChanged', function(event_data) {
+            console.log("onAuthStateChanged Tiledesk FN", event_data); 
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onAuthStateChanged --> FIRED! ' + event_data.detail.event + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onNewConversationComponentInit', function(event_data) {
-            console.log("onNewConversationComponentInit SyncYou FN", event_data); 
+        window.Tiledesk('onNewConversationComponentInit', function(event_data) {
+            console.log("onNewConversationComponentInit Tiledesk FN", event_data); 
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onNewConversationComponentInit --> FIRED! ' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onBeforeMessageSend', function(event_data) {
+        window.Tiledesk('onBeforeMessageSend', function(event_data) {
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onBeforeMessageSend --> FIRED!' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onAfterMessageSend', function(event_data) {
+        window.Tiledesk('onAfterMessageSend', function(event_data) {
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onAfterMessageSend --> FIRED!' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onMessageCreated', function(event_data) {
+        window.Tiledesk('onMessageCreated', function(event_data) {
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onMessageCreated --> FIRED!' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onOpen', function(event_data) {
+        window.Tiledesk('onOpen', function(event_data) {
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onOpen --> FIRED!' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onClose', function(event_data) {
+        window.Tiledesk('onClose', function(event_data) {
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onClose --> FIRED!' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onOpenEyeCatcher', function(event_data) {
+        window.Tiledesk('onOpenEyeCatcher', function(event_data) {
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onOpenEyeCatcher --> FIRED!' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onClosedEyeCatcher', function(event_data) {
+        window.Tiledesk('onClosedEyeCatcher', function(event_data) {
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onClosedEyeCatcher --> FIRED!' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onNewConversation', function(event_data) {
+        window.Tiledesk('onNewConversation', function(event_data) {
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onNewConversation --> FIRED!' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onConversationUpdated', function(event_data) {
+        window.Tiledesk('onConversationUpdated', function(event_data) {
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onConversationUpdated --> FIRED!' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onCloseMessagePreview', function(event_data) {
+        window.Tiledesk('onCloseMessagePreview', function(event_data) {
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onCloseMessagePreview --> FIRED!' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
             }
         });
 
-        window.SyncYou('onBeforeDepartmentsFormRender', function(event_data) {
+        window.Tiledesk('onBeforeDepartmentsFormRender', function(event_data) {
             if(document.getElementById('events')){
                 document.getElementById('events').value +=  'onBeforeDepartmentsFormRender --> FIRED!' + '\n' 
                 document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
@@ -753,20 +753,20 @@
             if(event ==='hide'){
                 window.tiledesk.hide()
             }else{
-                window.SyncYou(event);
+                window.Tiledesk(event);
             }
-            window.SyncYou('setParameter', {key: 'poweredBy', value: ''})
+            window.Tiledesk('setParameter', {key: 'poweredBy', value: ''})
         }
 
         function onClickSignInAnonymous(){
             console.log('onClickSignInAnonymous: event-->')
-            window.SyncYou('signInAnonymous')
+            window.Tiledesk('signInAnonymous')
         }
 
         function onClickCustomToken(){
             let jwt = document.getElementById('jwt').value
             console.log('onClickCustomToken: event-->',jwt)
-            window.SyncYou('signInWithCustomToken', jwt)
+            window.Tiledesk('signInWithCustomToken', jwt)
         }
 
         function onClickCustomPreChatForm(){
@@ -775,10 +775,10 @@
             if(preChatForm !== '' && isJsonString(preChatForm)=== true){
                 document.getElementById('preChatForm').style.color= '#555'
                 window.tiledeskSettings['preChatForm'] = true
-                window.SyncYou('setAttributeParameter',({key: 'userFullname', value: null}))
-                window.SyncYou('setAttributeParameter',({key: 'userEmail', value: null}))
-                window.SyncYou('setPreChatFormJson', JSON.parse(preChatForm))
-                // window.SyncYou('restart')
+                window.Tiledesk('setAttributeParameter',({key: 'userFullname', value: null}))
+                window.Tiledesk('setAttributeParameter',({key: 'userEmail', value: null}))
+                window.Tiledesk('setPreChatFormJson', JSON.parse(preChatForm))
+                // window.Tiledesk('restart')
             }else{
                 document.getElementById('preChatForm').style.color = 'red'
             }
@@ -787,13 +787,13 @@
 
         function onClickGetPreChatForm(){
             let preChatFormTextArea = document.getElementById('preChatFormGet')
-            let preChatFormJSON = window.SyncYou('getPreChatFormJson')
+            let preChatFormJSON = window.Tiledesk('getPreChatFormJson')
             preChatFormTextArea.value = JSON.stringify(preChatFormJSON, null, 4)
         }
 
         function onClickOpenConversationById(){
             let request_id = document.getElementById('request_id').value
-            window.SyncYou('openConversationById', request_id)
+            window.Tiledesk('openConversationById', request_id)
         }
 
         // function onClickParameter(elementName){
@@ -807,7 +807,7 @@
         //             console.log('valueeeee', elementName, radioValue)
         //             window.tiledeskSettings[elementName] = radioValue
         //             console.log('settingss', window.tiledeskSettings)
-        //             window.SyncYou('restart')
+        //             window.Tiledesk('restart')
         //             // only one radio can be logically checked, don't check the rest
         //             break;
         //         }
@@ -840,35 +840,35 @@
             !value? value = -1 : '';
             window.tiledeskSettings['disconnetTime'] = +value
             console.log('onClickDisconnectTime: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
     
         function onClickStartFromHome(){
             let status = document.querySelector('input[name="startFromHome"]:checked').value
             window.tiledeskSettings['startFromHome'] = stringToBoolean(status)
             console.log('onClickStartFromHome: status-->',window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickOpen(){
             let status = document.querySelector('input[name="open"]:checked').value
             window.tiledeskSettings['open'] = stringToBoolean(status)
             console.log('onClickOpen: status-->',window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickPreChatForm(){
             let status = document.querySelector('input[name="preChatForm"]:checked').value
             window.tiledeskSettings['preChatForm'] = stringToBoolean(status)
             console.log('onClickPreChatForm: status-->',window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickAlign(){
             let status = document.querySelector('input[name="align"]:checked').value
             window.tiledeskSettings['align'] = status
             console.log('onClickAlign: status-->',window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickCalloutTimer(){
@@ -881,49 +881,49 @@
             !value? value = -1 : '';
             window.tiledeskSettings['calloutTimer'] = +value
             console.log('onClickCalloutTimer: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickCalloutTitle(){
             let title = document.getElementById('calloutTitle').value
             window.tiledeskSettings['calloutTitle'] = title
             console.log('onClickCalloutTitle: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickCalloutMsg(){
             let msg = document.getElementById('calloutMsg').value
             window.tiledeskSettings['calloutMsg'] = msg
             console.log('onClickCalloutMsg: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickWelcomeTitle(){
             let title = document.getElementById('welcomeTitle').value
             window.tiledeskSettings['welcomeTitle'] = title
             console.log('onClickWelcomeTitle: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickWelcomeMsg(){
             let msg = document.getElementById('welcomeMsg').value
             window.tiledeskSettings['welcomeMsg'] = msg
             console.log('onClickWelcomeMsg: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickWidgetTitle(){
             let title = document.getElementById('widgetTitle').value
             window.tiledeskSettings['widgetTitle'] = title
             console.log('onClickWidgetTitle: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickLogoChat(){
             let url = document.getElementById('logoChat').value
             window.tiledeskSettings['logoChat'] = url
             console.log('onClickLogoChat: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickLang(){
@@ -933,35 +933,35 @@
             selectedLanguage.type === '--- Needs own translation ---'? lang = 'en': lang= selectedLanguage.code
             window.tiledeskSettings['lang'] = lang
             console.log('onClickLang: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickSingleConversation(){
             let status = document.querySelector('input[name="singleConversation"]:checked').value
             window.tiledeskSettings['singleConversation'] = stringToBoolean(status)
             console.log('onClickSingleConversation: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickRestartConversation(){
             let status = document.querySelector('input[name="restartConversation"]:checked').value
             window.tiledeskSettings['restart'] = stringToBoolean(status)
             console.log('onClickRestartConversation: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickHideSettings(){
             let status = document.querySelector('input[name="hideSettings"]:checked').value
             window.tiledeskSettings['hideSettings'] = stringToBoolean(status)
             console.log('onClickHideSettings: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickFullScreenMode(){
             let status = document.querySelector('input[name="fullscreenMode"]:checked').value
             window.tiledeskSettings['fullscreenMode'] = stringToBoolean(status)
             console.log('onClickFullScreenMode: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickThemeColor(){
@@ -969,7 +969,7 @@
             document.getElementById('themeColorText').value = color
             window.tiledeskSettings['themeColor'] = color
             console.log('onClickThemeColor: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onChangeThemeColor(){
@@ -987,7 +987,7 @@
             text === ""? text= 50 : text //set default value if user not write a value
             window.tiledeskSettings['themeColorOpacity'] = +text 
             console.log('onClickThemeColorOpacity:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onChangeThemeColorOpacity(){
@@ -1010,7 +1010,7 @@
             document.getElementById('themeForegroundColorText').value = color
             window.tiledeskSettings['themeForegroundColor'] = color
             console.log('onClickThemeForegroundColor:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onChangeColor(parameter){
@@ -1028,14 +1028,14 @@
             document.getElementById(parameter).value = color
             window.tiledeskSettings[parameter] = color
             console.log('onClickColor:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickDepartmentId(){
             let text = document.getElementById('departmentID').value
             window.tiledeskSettings['departmentID'] = text
             console.log('onClickDepartmentId:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickMarginX(){
@@ -1043,7 +1043,7 @@
             text === ""? text= '100px': text
             window.tiledeskSettings['marginX'] = text
             console.log('onClickMarginX:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickMarginY(){
@@ -1051,7 +1051,7 @@
             text === ""? text= '50px' : text //set default value if user not write a value
             window.tiledeskSettings['marginY'] = text
             console.log('onClickMarginY:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickMobileMarginX(){
@@ -1059,7 +1059,7 @@
             text === ""? text= '100px': text
             window.tiledeskSettings['mobileMarginX'] = text
             console.log('onClickMobileMarginX:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickMobileMarginY(){
@@ -1067,49 +1067,49 @@
             text === ""? text= '50px' : text //set default value if user not write a value
             window.tiledeskSettings['mobileMarginY'] = text
             console.log('onClickMobileMarginY:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickAutoStart(){
             let status = document.querySelector('input[name="autoStart"]:checked').value
             window.tiledeskSettings['autoStart'] = stringToBoolean(status)
             console.log('onClickAutoStart:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickStartHidden(){
             let status = document.querySelector('input[name="startHidden"]:checked').value
             window.tiledeskSettings['startHidden'] = stringToBoolean(status)
             console.log('onClickStartHidden:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickPersistence(){
             let status = document.querySelector('input[name="persistence"]:checked').value
             window.tiledeskSettings['persistence'] = status
             console.log('onClickPersistence:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickShowWaitTime(){
             let status = document.querySelector('input[name="showWaitTime"]:checked').value
             window.tiledeskSettings['showWaitTime'] = stringToBoolean(status)
             console.log('onClickShowWaitTime:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickShowAvailableAgents(){
             let status = document.querySelector('input[name="showAvailableAgents"]:checked').value
             window.tiledeskSettings['showAvailableAgents'] = stringToBoolean(status)
             console.log('onClickShowAvailableAgents', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickShowAllConversations(){
             let status = document.querySelector('input[name="showAllConversations"]:checked').value
             window.tiledeskSettings['showAllConversations'] = stringToBoolean(status)
             console.log('onClickShowAllConversations:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickLauncherWidth(){
@@ -1117,7 +1117,7 @@
             text === ""? text= 60 : text //set default value if user not write a value
             window.tiledeskSettings['launcherWidth'] = text + 'px'
             console.log('onClickLauncherWidth:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onChangeLauncherWidth(){
@@ -1135,14 +1135,14 @@
             text === ""? text= 60 : text //set default value if user not write a value
             window.tiledeskSettings['launcherHeight'] = text + 'px'
             console.log('onClickLauncherHeight', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickBaloonImage(){
             let url = document.getElementById('baloonImage').value
             window.tiledeskSettings['baloonImage'] = url
             console.log('onClickMarginY', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickBaloonShape(){
@@ -1163,7 +1163,7 @@
             }
             window.tiledeskSettings['baloonShape'] = value
             console.log('onClickBaloonShape', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onBallonShapeInput(){
@@ -1192,161 +1192,161 @@
             let status = document.querySelector('input[name="dynamicWaitTimeReply"]:checked').value
             window.tiledeskSettings['dynamicWaitTimeReply'] = stringToBoolean(status)
             console.log('onClickDynamicWaitTimeReply:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickOpenExternalLinkButton(){
             let status = document.querySelector('input[name="openExternalLinkButton"]:checked').value
             window.tiledeskSettings['openExternalLinkButton'] = stringToBoolean(status)
             console.log('onClickOpenExternalLinkButton:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickIsLogEnabled(){
             let status = document.querySelector('input[name="isLogEnabled"]:checked').value
             window.tiledeskSettings['isLogEnabled'] = stringToBoolean(status)
             console.log('onClickIsLogEnabled:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickLogLevel(){
             let status = document.getElementById('logLevel').value
             window.tiledeskSettings['logLevel'] = status
             console.log('onClickLogLevel:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickNativeRating(){
             let status = document.querySelector('input[name="nativeRating"]:checked').value
             window.tiledeskSettings['nativeRating'] = stringToBoolean(status)
             console.log('onClickNativeRating:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickWhatsappNumber(){
             let status = document.getElementById('whatsappNumber').value
             window.tiledeskSettings['whatsappNumber'] = status
             console.log('onClickWhatsappNumber:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickMessangerPageTitle(){
             let status = document.getElementById('messangerPageTitle').value
             window.tiledeskSettings['messangerPageTitle'] = status
             console.log('onClickMessangerPageTitle:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickTelegramUsername(){
             let status = document.getElementById('telegramUsername').value
             window.tiledeskSettings['telegramUsername'] = status
             console.log('onClickTelegramUsername:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
         
         function onClickHideHeaderCloseButton(){
             let status = document.querySelector('input[name="hideHeaderCloseButton"]:checked').value
             window.tiledeskSettings['hideHeaderCloseButton'] = stringToBoolean(status)
             console.log('onClickHideHeaderCloseButton: status-->',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickHideHeaderConversationOptionsMenu(){
             let status = document.querySelector('input[name="hideHeaderConversationOptionsMenu"]:checked').value
             window.tiledeskSettings['hideHeaderConversationOptionsMenu'] = stringToBoolean(status)
             console.log('onClickHideHeaderConversationOptionsMenu:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickHideCloseConversationOptionMenu(){
             let status = document.querySelector('input[name="hideCloseConversationOptionMenu"]:checked').value
             window.tiledeskSettings['hideCloseConversationOptionMenu'] = stringToBoolean(status)
             console.log('onClickHideCloseConversationOptionMenu:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickHideRestartConversationOptionsMenu(){
             let status = document.querySelector('input[name="hideRestartConversationOptionsMenu"]:checked').value
             window.tiledeskSettings['hideRestartConversationOptionsMenu'] = stringToBoolean(status)
             console.log('onClickHideRestartConversationOptionsMenu:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickAllowTranscriptDownload(){
             let status = document.querySelector('input[name="allowTranscriptDownload"]:checked').value
             window.tiledeskSettings['allowTranscriptDownload'] = stringToBoolean(status)
             console.log('onClickAllowTranscriptDownload:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickAllowReopen(){
             let status = document.querySelector('input[name="allowReopen"]:checked').value
             window.tiledeskSettings['allowReopen'] = stringToBoolean(status)
             console.log('onClickAllowReopen:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickContinueConversationBeforeTime(){
             let text = document.getElementById('continueConversationBeforeTime').value
             window.tiledeskSettings['continueConversationBeforeTime'] = text
             console.log('onClickContinueConversationBeforeTime:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickRecipientId(){
             let text = document.getElementById('recipientId').value
             window.tiledeskSettings['recipientId'] = text
             console.log('onClickRecipientId:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickSoundEnabled(){
             let status = document.querySelector('input[name="soundEnabled"]:checked').value
             window.tiledeskSettings['soundEnabled'] = stringToBoolean(status)
             console.log('onClickSoundEnabled:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickTypingLocation(){
             let status = document.querySelector('input[name="typingLocation"]:checked').value
             window.tiledeskSettings['typingLocation'] = status
             console.log('onClickTypingLocation:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickCustomAttributes(){
             let text = document.getElementById('customAttributes').value
             window.tiledeskSettings['customAttributes'] = JSON.parse(text)
             console.log('onClickCustomAttributes:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickShowInfoMessage(){
             let text = document.getElementById('showInfoMessage').value
             window.tiledeskSettings['showInfoMessage'] = text
             console.log('onClickShowInfoMessage:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickParticipants(){
             let text = document.getElementById('participants').value
             window.tiledeskSettings['participants'] = text
             console.log('onClickParticipants:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickFileUploadAccept(){
             let text = document.getElementById('fileUploadAccept').value
             window.tiledeskSettings['fileUploadAccept'] = text
             console.log('onClickFileUploadAccept:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickShowAttachmentButton(){
             let status = document.querySelector('input[name="showAttachmentButton"]:checked').value
             window.tiledeskSettings['showAttachmentButton'] = stringToBoolean(status)
             console.log('onClickShowAttachmentButton:', window.tiledeskSettings)
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
 
@@ -1358,7 +1358,7 @@
             text === ""? text= '1.4em': text
             window.tiledeskSettings['fontSize'] = text
             console.log('onClickFontSize:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
 
@@ -1367,7 +1367,7 @@
             text === ""? text= '15px': text
             window.tiledeskSettings['buttonFontSize'] = text
             console.log('onClickButtonFontSize:',window.tiledeskSettings);
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
        
@@ -1431,7 +1431,7 @@
                 const element = document.getElementById(elementName)
                 window.tiledeskSettings[elementName] = element.value
             }
-            window.SyncYou('restart')
+            window.Tiledesk('restart')
         }
 
         function onClickClearHistory(){
@@ -1775,7 +1775,7 @@
                     </div>
                     <div class="row section c21-parameters">
                         <div><h3 style="line-height: 0.3;">MANAGE <em><strong>widget settings</strong></em></h3></div>
-                        <div class="docs">Select an option for SyncYou settings parameter</div>
+                        <div class="docs">Select an option for Tiledesk settings parameter</div>
                         <div class="row">
                             <div class="col-md-5 formElement"><span><em><strong>disconnectTime</strong></em></span></div>
                             <div class="col-md-5">
@@ -2505,7 +2505,7 @@
                         <h2></h2>
                         <div class="b_integrations_agent_links">
                             <a href="" data-toggle="modal" data-target="#embedModal" id="enbed" style="display: none;"><i class="fa-code fa"></i>Embed</a>
-                            <!-- <a href="mailto:?subject=SyncYou%20widget%20test%20page"><i class="fa-envelope-o fa" target="_blank"></i>Email</a> -->
+                            <!-- <a href="mailto:?subject=Tiledesk%20widget%20test%20page"><i class="fa-envelope-o fa" target="_blank"></i>Email</a> -->
                             <a href="" data-toggle="modal" data-target="#shareModal" id="share"><i class="fa-reply fa"></i>Share</a>
                         </div>
                     </div>
@@ -2534,7 +2534,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}; <br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(function(d, s, id) { <br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var w=window; var d=document; var i=function() { i.c(arguments); };<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.q=[]; i.c=function(args){ i.q.push(args); }; w.SyncYou=i;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.q=[]; i.c=function(args){ i.q.push(args); }; w.Tiledesk=i;<br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var js, fjs=d.getElementsByTagName(s)[0];<br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (d.getElementById(id)) return;<br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;js=d.createElement(s); js.id=id; js.async=true;<br>

@@ -31,7 +31,7 @@ description:
       chat to address customers needs. 
 
 
-      SyncYou provides a solution **orchestrating instant, asynchronous and
+      Tiledesk provides a solution **orchestrating instant, asynchronous and
       multichannel communication among all stakeholders of a typical
       conversational architecture**: chatbots, support operators, end users,
       colleagues, applications, etc.  
@@ -65,10 +65,10 @@ description:
 
            
 
-      SyncYou is an **open source **project, made with passion in Salento
+      Tiledesk is an **open source **project, made with passion in Salento
       (Southern Italy).
     shortDescription: |-
-      SyncYou delivers scalable customer service to your mobile apps and your
+      Tiledesk delivers scalable customer service to your mobile apps and your
       website. It is a conversational platform that connects chatbots and
       humans 
 developmentStatus: stable
@@ -102,9 +102,9 @@ maintenance:
   contacts:
     - name: Andrea Sponziello
   type: internal
-name: SyncYou
+name: Tiledesk
 platforms:
   - web
 releaseDate: '2022-06-15'
 softwareType: standalone/web
-url: 'https://github.com/SyncYou/tiledesk-deployment'
+url: 'https://github.com/Tiledesk/tiledesk-deployment'

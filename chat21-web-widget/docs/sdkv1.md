@@ -47,7 +47,7 @@ You can customize the widget passing these parameters to  window.tiledeskSetting
 
 * **welcomeMsg**: Set the widget welcome message. Value type : string
 
-* **widgetTitle**: Set the widget title label shown in the widget header. Value type : string. The default value is SyncYou.
+* **widgetTitle**: Set the widget title label shown in the widget header. Value type : string. The default value is Tiledesk.
 
 * **lang** : With this configuration it is possible to force the widget lang. The widget will try to get the browser lang, if it is not possible it will use the default "en" lang
 

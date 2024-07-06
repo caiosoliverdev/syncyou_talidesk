@@ -21,9 +21,9 @@ export class BrandService {
 
   _brand = {
     DASHBOARD: {
-      META_TITLE: "SyncYou Support Dashboard",
+      META_TITLE: "Tiledesk Support Dashboard",
       FAVICON_URL: "https://tiledesk.com/wp-content/uploads/2022/07/tiledesk_v13-300x300.png",
-      "company_name": "SyncYou",
+      "company_name": "Tiledesk",
       "company_site_name": "tiledesk.com",
       "company_site_url": "https://www.tiledesk.com",
       "company_logo_white__url": "assets/img/logos/tiledesk-logo_white_orange.svg",
@@ -81,8 +81,8 @@ export class BrandService {
       BASE_LOGO_NO_TEXT: "assets/logos/tiledesk_logo.svg",
       BASE_LOGO_WHITE: "assets/logos/tiledesk-logo_new_white.svg",
       BASE_LOGO_WHITE_NO_TEXT:"",
-      COMPANY_NAME: "SyncYou",
-      BRAND_NAME: "SyncYou",
+      COMPANY_NAME: "Tiledesk",
+      BRAND_NAME: "Tiledesk",
       COMPANY_SITE_NAME:"tiledesk.com",
       COMANY_SITE_URL:"https://www.tiledesk.com",
       CONTACT_US_EMAIL: "support@tiledesk.com",

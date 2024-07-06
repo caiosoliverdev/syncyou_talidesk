@@ -1,43 +1,43 @@
 [![npm version](https://badge.fury.io/js/%40chat21%2Fchat21-web-widget.svg)](https://badge.fury.io/js/%40chat21%2Fchat21-web-widget)
 
-# SyncYou Introduction
+# Tiledesk Introduction
 
-SyncYou-server is the server engine of SyncYou. SyncYou is an Open Source Live Chat platform with integrated Chatbots written in NodeJs and Express. Build your own customer support with a multi-channel platform for Web, Android and iOS.
+Tiledesk-server is the server engine of Tiledesk. Tiledesk is an Open Source Live Chat platform with integrated Chatbots written in NodeJs and Express. Build your own customer support with a multi-channel platform for Web, Android and iOS.
 
 Designed to be open source since the beginning, we actively worked on it to create a totally new, first class customer service platform based on instant messaging.
 
-What is SyncYou today? It became the open source “conversational app development” platform that everyone needs 😌
+What is Tiledesk today? It became the open source “conversational app development” platform that everyone needs 😌
 
-You can use SyncYou to increase sales for your website or for post-sales customer service. Every conversation can be automated using our first class native chatbot technology. You can also connect your own applications using our APIs or Webhooks. Moreover you can deploy entire visual applications inside a conversation. And your applications can converse with your chatbots or your end-users! We know this is cool 😎
+You can use Tiledesk to increase sales for your website or for post-sales customer service. Every conversation can be automated using our first class native chatbot technology. You can also connect your own applications using our APIs or Webhooks. Moreover you can deploy entire visual applications inside a conversation. And your applications can converse with your chatbots or your end-users! We know this is cool 😎
 
-SyncYou is multichannel in a totally new way. You can write your chatbot scripts with images, buttons and other cool elements that your channels support. But you will configureyour chatbot replies only once. They will run on every channel, auto-adapting the responses to the target channel whatever it is, Whatsapp, Facebook Messenger, Telegram etc.
+Tiledesk is multichannel in a totally new way. You can write your chatbot scripts with images, buttons and other cool elements that your channels support. But you will configureyour chatbot replies only once. They will run on every channel, auto-adapting the responses to the target channel whatever it is, Whatsapp, Facebook Messenger, Telegram etc.
 
-# SyncYou web-widget
+# Tiledesk web-widget
 
-> ***🚀 Do you want to install SyncYou on your server with just one click?***
+> ***🚀 Do you want to install Tiledesk on your server with just one click?***
 > 
-> ***Use [Docker Compose SyncYou installation](https://github.com/SyncYou/tiledesk-deployment/blob/master/docker-compose/README.md) guide***
+> ***Use [Docker Compose Tiledesk installation](https://github.com/Tiledesk/tiledesk-deployment/blob/master/docker-compose/README.md) guide***
 
-SyncYou web-widget is a Free Live Chat Widget built on Firebase with Angular5 that lets you support and chat with visitors and customers on your website. 
+Tiledesk web-widget is a Free Live Chat Widget built on Firebase with Angular5 that lets you support and chat with visitors and customers on your website. 
 More information about web widget here : http://www.tiledesk.com
 
 <img width="600" alt="dialogo_widgetchat_2" src="https://user-images.githubusercontent.com/47848430/151355859-f94be6a7-3098-43a2-924c-d411e10d5815.png">
 
-With SyncYou web-widget you can:
+With Tiledesk web-widget you can:
 * Invite your website visitors to share feedback and suggestions to better understand their needs.
 * Answer questions from website visitors instantly to increase trust
 * Add a code snippet to your website easly 
 * It's a HTML5 widget built with Google Firebase, Angular5 and Bootstrap
 
 # Community? Questions? Support ?
-If you need help or just want to hang out, come, say hi on our [<img width="15" alt="SyncYou discord" src="https://seeklogo.com/images/D/discord-color-logo-E5E6DFEF80-seeklogo.com.png"> Discord](https://discord.gg/nERZEZ7SmG) server or make a post on our [Forum](https://tiledesk.discourse.group)
+If you need help or just want to hang out, come, say hi on our [<img width="15" alt="Tiledesk discord" src="https://seeklogo.com/images/D/discord-color-logo-E5E6DFEF80-seeklogo.com.png"> Discord](https://discord.gg/nERZEZ7SmG) server or make a post on our [Forum](https://tiledesk.discourse.group)
 
 # Features
 * Send a direct message to a preset user
 * Receive realtime support from your team
 * Form to enter the chat sentiment
 * Configure the widget with company logo and colors
-* SyncYou Web Widget is free and open source.
+* Tiledesk Web Widget is free and open source.
 
 # Prerequisites #
 * Install Git
@@ -45,14 +45,14 @@ If you need help or just want to hang out, come, say hi on our [<img width="15" 
 * Create a Firebase project. Create one free on `https://firebase.google.com`
 * "Chat21 Firebase cloud functions" installed. Instructions:`https://github.com/chat21/chat21-cloud-functions`
 
-# Run SyncYou with Docker Compose
+# Run Tiledesk with Docker Compose
 
-Do you want to install all the SyncYou components on your server with just one click?
-Use [Docker Compose SyncYou installation guide](https://github.com/SyncYou/tiledesk-deployment/blob/master/docker-compose/README.md)
+Do you want to install all the Tiledesk components on your server with just one click?
+Use [Docker Compose Tiledesk installation guide](https://github.com/Tiledesk/tiledesk-deployment/blob/master/docker-compose/README.md)
 
 # Installation
 
-* Clone the repository from master (or use a tagged release) with command: ```git clone https://github.com/SyncYou/chat21-web-widget <YOUR_PATH>```
+* Clone the repository from master (or use a tagged release) with command: ```git clone https://github.com/Tiledesk/chat21-web-widget <YOUR_PATH>```
 * Move to the downloaded project path ```cd <YOUR_PATH>```
 * Build running: `npm install`
 
@@ -99,7 +99,7 @@ export const environment = {
 };
 ```
 
-* `logLevel`: The SyncYou web-widget supports 4 log levels. The order is as follows:
+* `logLevel`: The Tiledesk web-widget supports 4 log levels. The order is as follows:
   `Error < Warn < Info < Debug`
 
 ### RUN in dev
@@ -157,7 +157,7 @@ If you use AWS Cloud Front enable gzip compression.
 # Run with docker
 
   
-To run SyncYou web-widget on port 4200 run:
+To run Tiledesk web-widget on port 4200 run:
 
 ```
 

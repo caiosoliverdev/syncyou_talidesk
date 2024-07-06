@@ -55,7 +55,7 @@ You can customize the widget passing these parameters to  window.tiledeskSetting
 
 * **welcomeMsg**: Set the widget welcome message. Value type : string
 
-* **widgetTitle**: Set the widget title label shown in the widget header. Value type : string. The default value is SyncYou.
+* **widgetTitle**: Set the widget title label shown in the widget header. Value type : string. The default value is Tiledesk.
 
 * **logoChat**: The url of the logo to show on the widget home page.
 
@@ -79,7 +79,7 @@ You can customize the widget passing these parameters to  window.tiledeskSetting
 
 * **marginY**: Set the distance from the page bottom margin. Default value : 20px
 
-* **persistence**: You can specify how the Authentication state persists when using the SyncYou JS SDK. This includes the ability to specify whether a signed in user should be indefinitely persisted until explicit sign out or cleared when the window is closed. Permittet values: local, session. Default value : local. Local value indicates that the state will be persisted even when the browser window is closed. An explicit sign out is needed to clear that state. Session value indicates that the state will only persist in the current session or tab, and will be cleared when the tab or window in which the user authenticated is closed. 
+* **persistence**: You can specify how the Authentication state persists when using the Tiledesk JS SDK. This includes the ability to specify whether a signed in user should be indefinitely persisted until explicit sign out or cleared when the window is closed. Permittet values: local, session. Default value : local. Local value indicates that the state will be persisted even when the browser window is closed. An explicit sign out is needed to clear that state. Session value indicates that the state will only persist in the current session or tab, and will be cleared when the tab or window in which the user authenticated is closed. 
 
 
 ### Example 1. Widget with user fullname and email

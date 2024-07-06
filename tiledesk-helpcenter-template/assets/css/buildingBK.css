@@ -1,9 +1,0 @@
-.building-in-progress-header {
-    position: absolute;
-    background-color: red;
-    z-index: 1051;
-    top: 0;
-    width: 100%;
-    text-align: center;
-    display: block !important;
-}

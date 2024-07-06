@@ -5,7 +5,7 @@
 
     @Author Andrea Sponziello
     @Member Gabriele Panico
-    (c) SyncYou 2020
+    (c) Tiledesk 2020
 */
 
 let mqtt = require('./mqtt/4.2.6/mqtt.min.js');
@@ -208,7 +208,7 @@ class Chat21Client {
         // example:
         // {
         //     "group_id":"group-tiledeskteam",
-        //     "group_name":"SyncYou Team",
+        //     "group_name":"Tiledesk Team",
         //     "group_members":{
         //         "608bc83b3d0b3e494f4d0578":1,
         //         "608bc81f3d0b3e494f4d0575":1,
