@@ -43,8 +43,3 @@ testem.log
 .DS_Store
 Thumbs.db
 test_widget.php
-
-src/environments
-src/environments/real_data
-src/widget-config-docker.json
-src/widget-config-native-mqtt.json

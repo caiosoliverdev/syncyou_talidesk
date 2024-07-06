@@ -53,6 +53,3 @@ Thumbs.db
 *.launch
 .settings/
 *.sublime-workspace
-
-/src/environments/env-locali
-/src/environments/real_data
